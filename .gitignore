@@ -5,3 +5,13 @@ outputs/
 __pycache__/
 .ipynb_checkpoints/
 wandb/
+
+# Local dependencies, caches and credentials
+**/.venv/
+**/.cache/
+**/.pytest_cache/
+**/.ruff_cache/
+.DS_Store
+.env
+.env.*
+!.env.example

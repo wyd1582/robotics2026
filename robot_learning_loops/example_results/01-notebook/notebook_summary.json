@@ -1,0 +1,14 @@
+{
+  "elapsed_seconds": 8.550031291000778,
+  "worst_bc_seed": 10015,
+  "config": {
+    "seed": 7,
+    "device": "cpu",
+    "quick": false,
+    "episodes": 80,
+    "updates": 2000,
+    "eval_episodes": 30,
+    "extra_episodes": 40
+  },
+  "all_cells_execution": "reached final computational cell"
+}

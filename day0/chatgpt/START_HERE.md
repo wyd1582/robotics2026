@@ -1,0 +1,295 @@
+# Mac + AWS 的 Physical AI 研究起步手册
+
+编写日期：2026-09-08。按全新 Apple Silicon Mac、每周约 12–15 小时设计；实际内存、SSD、预算尚未确认。这里是操作指南，没有在你的电脑安装工具或启动云资源。
+
+1. 先确定研究主线
+
+建议用“数据如何改变机器人策略表现”作为主线，以“时序、接口与闭环评测”切入。你的统计、优化、时点一致性、分布偏移与生产 ML 经历可以迁移；接触动力学、机器人动作表示、策略训练、真机实验需要补充。
+
+首个研究问题：在一个固定任务与策略结构下，观测延迟/训练配对错位会怎样改变成功率？修复配对或增加恢复演示，相比同等预算的随机补数据，是否更有效？
+
+这些是不同机制，要分开实验：
+
+- 训练配对错位：改变 observation 与 action 的配对，保持评测环境不变。
+- 部署延迟：保持训练数据不变，评测时只让策略看到更早的观测。
+- 数据干预：明确是重对齐、筛选、重加权，还是新增专家恢复演示。每次先改变一种因素。
+
+先在 PushT 做方法开发，再在一个 MuJoCo 机械臂接触任务上验证外推。PushT 不需要 MuJoCo，两者是分阶段的实验环境。一次机械臂验证也不能支持“通用具身智能”结论。
+
+2. 新电脑：先检查，再安装
+
+打开 Terminal，将随本手册交付的 mac_selfcheck.sh 拖入窗口可得到文件路径。用 bash 加该路径运行，例如在文件所在目录：
+
+```bash
+bash mac_selfcheck.sh
+```
+
+脚本没有网络访问、安装、sudo、配置写入或清理行为，不输出序列号、环境变量与进程参数。它只检查 macOS、当前终端架构、芯片、物理内存、磁盘、swap、FileVault、SIP、Gatekeeper、开发工具路径。
+
+解读方法：
+
+| 检查项 | 期望结果 | 不符合时的下一步 |
+|---|---|---|
+| 当前架构 | arm64 | 检查 Terminal 是否以 Rosetta 打开；后续 Python 也应为 arm64 |
+| Rosetta 状态 | 0 或该 sysctl 不存在 | 1 表示当前进程被转译，不代表硬件不是 Apple Silicon |
+| 开发工具路径 | CommandLineTools 或 Xcode 的有效路径 | 缺失时按下一节装 CLT |
+| brew | Apple Silicon 默认 /opt/homebrew/bin/brew | 找不到则安装；若在 /usr/local，先确认是否旧 Intel 环境，别直接删除 |
+| 内存压力 | 日常与实验负载下大部分为绿色 | 黄/红持续出现且 swap 不断增长：降低 batch、并发进程、视频缓存 |
+| 安全功能 | FileVault/SIP/Gatekeeper 开启 | 在系统设置或 Apple 官方指导下恢复，不通过关闭它们解决安装问题 |
+
+安全准备：更新到受支持的 macOS 稳定补丁；打开 FileVault，保存恢复方式；设置加密 Time Machine 备份。GitHub/AWS 使用 MFA。不要把 .env、私钥、凭证或内部简历提交到 Git。
+
+FileVault：[Apple 官方说明](https://support.apple.com/en-ie/guide/mac-help/-mh11785/mac)。内存压力与缓存解释：[Activity Monitor 官方说明](https://support.apple.com/en-ie/guide/activity-monitor/actmntr1004/mac)。
+
+3. 第一层环境：只装基础工具
+
+先运行：
+
+```bash
+xcode-select -p
+```
+
+仅在提示未安装开发工具时运行下面这条，等待系统安装界面完成：
+
+```bash
+xcode-select --install
+```
+
+验证：
+
+```bash
+git --version
+clang --version
+```
+
+普通 Python/ML 开发先用 Command Line Tools 即可，完整 Xcode 到 iOS/macOS 原生开发或具体构建要求出现时再装。
+
+先检查是否已有 Homebrew：
+
+```bash
+command -v brew
+```
+
+如果没有，从 [Homebrew 官方安装文档](https://docs.brew.sh/Installation)进入安装。以下是先下载、再查看、最后执行的方式；安装器会说明系统改动，首次安装可能请求管理员密码。
+
+```bash
+mkdir -p "$HOME/Developer/setup-review"
+cd "$HOME/Developer/setup-review"
+curl --proto '=https' --tlsv1.2 -fsSL \
+  https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh \
+  -o homebrew-install.sh
+less homebrew-install.sh
+```
+
+确认来源与安装目标后，才运行：
+
+```bash
+/bin/bash homebrew-install.sh
+```
+
+按安装完成输出的 Next steps 配置 PATH。Apple Silicon 默认位置是 /opt/homebrew；当前 Terminal 可用以下命令加载。永久设置按安装器提示只添加一次，不重复堆叠到配置文件。
+
+```bash
+eval "$(/opt/homebrew/bin/brew shellenv)"
+brew --prefix
+brew doctor
+brew install uv ripgrep
+```
+
+`brew doctor` 的警告逐条判断，不等于都必须修复。CLT 已提供 Git；暂时不必再装第二套 Git。选择一个编辑器即可，例如从 [VS Code 官方站点](https://code.visualstudio.com/download)下载 Apple Silicon 版本，先只启用 Python 扩展。
+
+工具分层：
+
+| 现在装 | 完成第一轮实验后按需装 | 有明确依赖再装 |
+|---|---|---|
+| CLT/Git、Homebrew、uv、ripgrep、一个编辑器 | ffmpeg、MuJoCo、LeRobot 指定 extras、AWS CLI、GitHub CLI | Docker 或一个 Linux VM、ROS 2/Gazebo、CMake、Rust、Node、Isaac Lab |
+
+这条路线由 uv 管理项目 Python。若上游仓库明确提供经过验证的 conda 环境，可为该仓库采用它；不要在同一个虚拟环境里混用多个管理器。不要 `sudo pip install`，不要改系统 Python，也不要无差别安装 `lerobot[all]`。
+
+4. 第二层环境：隔离 Python 与基础训练验收
+
+示例项目放在不自动同步的 Developer 目录。代码通过 Git 版本管理，备份另行处理；大型数据和 .venv 不应进入 Drive/iCloud 同步目录。
+
+```bash
+mkdir -p "$HOME/Developer"
+cd "$HOME/Developer"
+uv python install 3.12
+uv init --python 3.12 physical-ai-lab
+cd physical-ai-lab
+uv add numpy pandas matplotlib torch
+uv add --dev pytest ruff
+uv run python -c 'import platform,sys; print(platform.machine()); print(sys.executable)'
+```
+
+预期为 arm64 与项目 .venv 内的 Python。Python 3.12 是这份路线当前的兼容性起点；如复现旧仓库，优先遵循该仓库明确的版本约束。uv 安装与项目用法：[安装](https://docs.astral.sh/uv/getting-started/installation/)、[项目](https://docs.astral.sh/uv/guides/projects/)。
+
+将 smoke_test.py 与 timing_lab.py 复制到该项目目录，先检查 CPU，再检查 MPS：
+
+```bash
+uv run python smoke_test.py --device cpu
+uv run python smoke_test.py --device mps
+uv run python timing_lab.py
+uv run python timing_lab.py --test
+```
+
+smoke_test 使用很小的 float32 线性回归，检查前向、反向、优化与有限 loss；预期输出 PASS，loss 下降至少一个数量级。它不代表所有模型/算子都兼容。
+
+MPS 不可用：确认当前 Python 是 arm64、macOS 与 PyTorch 满足支持条件，然后在 CPU 上排查。不要通过关闭系统保护、安装 Mac CUDA、或把 MPS 内存上限设为无限来解决。
+
+MPS 是 Apple GPU 的 PyTorch 后端；这不是 NVIDIA CUDA。小模型因调度与传输开销可能在 CPU 上更快，要在实际任务上测量。[Apple 的 PyTorch/MPS 官方说明](https://developer.apple.com/metal/pytorch/)。
+
+把 pyproject.toml、uv.lock、.python-version、代码与测试纳入 Git；确认 .gitignore 包含 .venv/、.env、data/、checkpoints/、__pycache__/。同一项目下一次用 `uv sync --locked` 恢复；跨 CPU/MPS/CUDA还要记录驱动和硬件，锁文件不能保证所有平台的数值结果相同。
+
+5. 第三层环境：数据与仿真，分别增加
+
+MuJoCo 可先做无图形的动力学验收：
+
+```bash
+uv add mujoco
+uv run python smoke_test.py --device cpu --mujoco
+```
+
+这会检查一个自由落体球的状态是否有限、时间是否推进。MuJoCo 自带 Python bindings；不要安装过时的 mujoco-py。macOS 的 passive viewer 需要按官方说明用 mjpython 启动；无头验收先通过再处理 GUI。[MuJoCo Python 文档](https://mujoco.readthedocs.io/en/stable/python.html)。
+
+LeRobot 放到独立项目或独立上游 checkout。当前 main 文档要求 Python >=3.12、支持 PyTorch >=2.10；功能依赖拆成 dataset/training/evaluation 等 extras。文档 main 与 PyPI 已发布版本可能不同，开始实验前选定一个实际存在的 release 或 commit，并使用该版本文档。[官方安装文档](https://huggingface.co/docs/lerobot/installation)。
+
+参与上游代码时可采用以下分步方式（首次 clone 会访问网络）：
+
+```bash
+cd "$HOME/Developer"
+git clone https://github.com/huggingface/lerobot.git
+cd lerobot
+git rev-parse HEAD
+uv venv --python 3.12
+brew install ffmpeg
+uv pip install --python .venv/bin/python -e '.[dataset]'
+```
+
+在 git rev-parse HEAD 后记录 commit，阅读此 checkout 的安装文档和 pyproject.toml，再执行安装。先读一个 episode 并成功解码一帧；通过后才为同一 checkout 添加训练/评估与需要的 policy/env extras。具体命令以该 commit 为准，示例：
+
+```bash
+uv pip install --python .venv/bin/python -e '.[training,evaluation,pusht,diffusion]'
+uv pip check --python .venv/bin/python
+```
+
+PyTorch、TorchCodec、ffmpeg 的兼容性必须一起核对。若所选旧 release 不支持上述 extras，使用它自己的安装说明。记录完整解析后的依赖、Git SHA、Python 版本和运行命令。安装完成也不代表已验证训练，验收顺序仍是“单帧→单 batch→一次 backward→短 rollout→完整实验”。
+
+第一份公开数据用 [lerobot/pusht](https://huggingface.co/datasets/lerobot/pusht)。已读取的 [meta/info.json](https://huggingface.co/datasets/lerobot/pusht/raw/main/meta/info.json) 标注：v3.0、206 episodes、25,650 frames、10 Hz、1 task，图像 96×96，action 与 observation.state 均为二维。它是推块任务，不能把元数据中的 motor_0/motor_1 当成真实电机关节语义；需再读环境代码核实动作含义和单位。
+
+先读 metadata、指定少量 episodes、只加载需要的列。v3 是共享 Parquet/MP4 分片，episode 边界来自 metadata，不是“一文件一 episode”；选择 10 个 episodes 也可能下载包含它们的较大分片。下载前检查具体文件大小，不要把网页 Parquet 大小或分片目标大小当成视频全集大小。[数据格式文档](https://huggingface.co/docs/lerobot/lerobot-dataset-v3)。
+
+该数据只有 train split，需自行固定演示训练/验证 episode 清单；在线闭环评测另用固定、与训练采集不同的环境初始状态 seeds。只有一个 task，不能宣称做了 held-out-task 测试。
+
+6. 内存、磁盘与性能的日常规则
+
+以下是起始经验值，不是 M5 官方性能保证：
+
+| 实际统一内存 | 本地工作安排 |
+|---|---|
+| 16 GB 级 | 数据抽样、分析、小 CPU/MPS 模型；避免边开 VM 边训练视觉策略 |
+| 24–32 GB 级 | 可尝试单个小型视觉策略与轻仿真，仍从小 batch 开始 |
+| 48–64 GB 及以上 | 可留更大数据缓存或实验空间；仍不能替代 CUDA 软件兼容性 |
+
+- 打开 Activity Monitor 看内存压力、swap 增长趋势和交互卡顿。缓存占用大不等于内存泄漏，不运行“清内存”工具，不禁用 swap。
+- DataLoader 从 num_workers=0、batch_size=8 或更小开始，再测 2 个 worker 是否更快；关闭不必要的 persistent workers。Python 多进程入口放在 if __name__ == '__main__' 下。
+- 先限制视频分辨率、相机路数、时间窗口和预取；按 batch 解码，不预解码整套视频进 RAM。
+- CPU 线程可先设 2–4，再基于吞吐测量调整；不要同时堆满 BLAS 线程、DataLoader worker 和仿真进程。
+- 留出 SSD 约 15–20% 空间作为经验余量。定期查看模型、视频与虚拟环境的占用；只删除已确认可重新生成的内容。缓存有复用价值，不做每日全量清空。
+- 开发工具装在硬盘上不等于持续占 RAM。重点管理登录项、后台 Docker/VM、闲置 notebook kernel、视频解码与本地模型服务。
+- 一开始同时只跑一个训练作业。长实验插电、保持散热；每次只调一个性能参数，记录 samples/s、step latency、峰值内存与任务表现。
+- 普通 Mac Linux 容器不能提供 NVIDIA CUDA，也不能假定能透传 MPS 给任意 PyTorch 容器。MPS 训练放原生 macOS；NVIDIA 工作负载放 Linux GPU 主机。[Docker GPU 支持边界](https://docs.docker.com/desktop/features/gpu/)。
+
+ROS 2/PX4 链路优先跟随 FLAI 已验证的环境。没有现成 lock 时，Ubuntu 24.04 + ROS 2 Jazzy + Gazebo Harmonic 是可核查的候选组合：Jazzy 有 Ubuntu 24.04 arm64/amd64 支持，PX4 当前文档也把 24.04 列为 CI/release 目标。先验证 talker/listener，再构建 PX4 SITL，最后接 FLAI；不要直接追最新发行版混装。[ROS](https://docs.ros.org/en/jazzy/Installation/Alternatives/Ubuntu-Install-Binary.html)、[PX4](https://docs.px4.io/main/en/dev_setup/dev_env_linux_ubuntu)。
+
+若临时需要 Linux，可选一个 ARM64 VM 或一个容器运行时；不要一开始同时装多个。无图形 SITL可使用 CPU 云主机。Isaac Sim/Lab 需单独满足版本对应的 Linux/Windows、NVIDIA GPU、驱动、RAM和渲染要求，Mac 原生不在其支持矩阵内。[Isaac Sim 要求](https://docs.isaacsim.omniverse.nvidia.com/5.0.0/installation/requirements.html)。
+
+7. AWS：达到需要 GPU 的阶段再启动
+
+适合迁移：实际策略依赖 CUDA；本地内存持续不足；需要多 seed 训练；本地耗时妨碍迭代。先把读取一个 batch、前向、反向在本地或小环境跑通再购买长时算力。
+
+第一次操作流程：
+
+1. 使用启用 MFA 的身份，避免 root 做日常开发。选定一个账户和 region，核实 GPU 配额与可用性。
+2. 先确定单次时长上限与月预算，在 AWS Budgets 设置实际/预测费用提醒。预算提醒有延迟，不是硬消费上限。
+3. 去 EC2 Launch instance，选择已核验发布者为 AWS、适配 NVIDIA GPU 的 Ubuntu Deep Learning AMI；核对架构、PyTorch/CUDA/driver 说明及是否有 Marketplace 额外费用。
+4. 对小型策略先比较单卡 g5/g6：g5.2xlarge/g6.2xlarge 有 32 GiB 主机 RAM，比 16 GiB 的 xlarge 更适合视频数据加载。这只是候选，GPU显存是否够用必须看真实 batch。不要默认选多卡或长期承诺付费。
+5. 根盘从与数据量匹配的加密 gp3 起步，例如 100 GiB 只是小实验起点；记录 EBS、快照、S3、网络与公网 IP 费用。不要为第一次实验额外搭 EKS 或 NAT Gateway。
+6. 网络首选 Session Manager：实例需要正确的 instance profile、SSM Agent、到 SSM 服务的出站连通性，入站可以关闭。若使用 SSH，只开放个人当前 IP/32 的 22 端口；Jupyter 绑定 127.0.0.1 并经隧道访问，不公开 8888。
+7. 高级设置检查 instance-initiated shutdown behavior 为 Stop。进入实例后先设本次最长运行时间，例如 `sudo shutdown -h +120`；它是 OS 级兜底，不是严格费用上限，重启/取消可能使其失效。需要更可靠时另设云端停止计划并验证。
+8. 登录后先运行 `nvidia-smi`，进入选定 Python 环境，运行 `python smoke_test.py --device cuda`，再验证一个真实训练 batch 和 checkpoint 的保存/恢复。DLAMI 预装驱动已可用时，不盲目覆盖驱动。
+9. 完成实验先把 checkpoint、config、数据版本与指标存到持久存储，确认可读，再在控制台 Stop，等待状态确实 stopped。
+10. stopped 不代表零费用：EBS、快照、S3 等仍可能收费。后续不再使用时，确认数据保留策略后终止实例并检查残留资源；断开 SSH 或关上 Mac 不会停止 EC2。
+
+成本估算写成：运行小时 × 所选 region/实例即时价格 + EBS 月度容量费用 + 快照/S3 + 公网 IP/流量。实例单价未在本次按账户与 region 核实，不在这里编造固定报价。
+
+来源：[启动 DLAMI](https://docs.aws.amazon.com/dlami/latest/devguide/launch.html)、[实例配置](https://docs.aws.amazon.com/ec2/latest/instancetypes/ac.html)、[Budgets](https://docs.aws.amazon.com/cost-management/latest/userguide/budgets-managing-costs.html)、[SSM](https://docs.aws.amazon.com/systems-manager/latest/userguide/session-manager.html)、[停止实例](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/Stop_Start.html)。
+
+8. 第一个小时：亲手解释一个时序错误
+
+```bash
+uv run python timing_lab.py
+uv run python timing_lab.py --test
+```
+
+例子中策略在 t=1.00 决策。样本 B 于 0.99 采样，却要到 1.10 才收到；样本 A 于 0.80 采样、0.85 收到。最近时间匹配会选 B，真实在线系统当时只能用 A。
+
+亲手改三处：
+
+1. 改 B 的 available_time 为 0.995，预测输出再运行。
+2. 把 max_age 从 0.25 改为 0.10，解释为什么没有合法样本。
+3. 新增一个 clock reset，写测试证明不能跨 reset 拼接。
+
+口试：sample_time、available_time、decision_time、target_action_time 有何区别？系统在拿不到新鲜观测时应该如何标记状态？默认插值为什么可能引入未来信息？
+
+这是合成数据上的教学例子，不证明 FLAI 或 LeRobot 已有漏洞。所附测试已在本次环境中执行；Mac 自检脚本只做了 shell 语法检查，PyTorch/MuJoCo 冒烟脚本只做了 Python 语法检查，尚未在目标 M5 上验收。
+
+9. 从练习到真实贡献：12 周按验收推进
+
+| 周次 | 工作与材料 | 可检查的交付物 |
+|---|---|---|
+| 1 | 环境、L1/L2、时序练习；读 PushT 数据卡与 metadata | 环境清单；10 个 episode 的结构说明；明确已知/未知的动作与时间语义 |
+| 2 | L2/L3；完成最小 profiler | 检查 frame/episode 边界、NaN、时间单调性、缺失字段、维度；合成坏例能被检出，合法数据不误报 |
+| 3–4 | L5；固定一个视觉策略基线 | 单 batch→小数据拟合→在线 rollout；数据 split、checkpoint、训练曲线、失败视频 |
+| 5–6 | L7/L10；一次只改变一种延迟机制 | 0/1/2/4 帧延迟的成功率/回报/时延曲线；训练与评测延迟明确区分 |
+| 7–8 | L8；修复数据或补恢复演示 | 与原始、随机补数据、等数量筛选等基线比较，训练更新次数/数据预算一致 |
+| 9–10 | L4/L10；迁移一个 MuJoCo 操作任务，或接入可访问的真机 | 检验结论是否依赖 PushT；若是真机，记录标定、低速限位、人工停止与干预 |
+| 11–12 | Bridge 的 conformance capstone | 可安装的小模块、可复现结果、一份真实用户/维护者可评审的 issue 或 PR 草稿 |
+
+每周约 60% 写代码/实验、25% 定向阅读、15% 写分析与复盘。暂时只维护一个主项目，公开传播和公司研究放在有实验结果之后。每周时间若只有 6–8 小时，优先延长周期，保留完整实验链条。
+
+第一次 profiler 不造“综合质量分数”。先报告可验证事实，未知字段标 unknown，不把时间戳平滑、动作平滑或高熵直接等同于好数据。物理接触与恢复轨迹可能本来就不平滑。
+
+整理后的公开数据常只有统一 timestamp，没有各传感器的原始采样/到达时间。这时只能评估存储层一致性，不能从它推断真实端到端延迟；必须使用人工注入或有原始时钟证据的数据。
+
+实验协议：
+
+- 先在开发 seeds 上探索；冻结最终评测 seeds 和成功定义后，再看最终结果。
+- 按完整 episode 划分训练/验证，禁止同一轨迹相邻帧跨 split；归一化只在训练数据拟合。
+- 对人工错位不跨 episode，也不循环回卷序列；所有组一致处理边缘帧。
+- 先 1 个训练 seed + 20 次 rollout 查代码，再至少 3 个训练 seeds、每个 100 次配对初始状态 rollout 做初步报告；样本数需按观察到的方差与效应大小调整。
+- 报告每个 seed 的结果、成功次数/总次数、95% 区间。bootstrap 按训练 seed 与 episode 的层级处理，不能把大量相关帧当独立样本。
+- 同时报告任务成功、回报/覆盖、干预或失效率、p50/p95 时延、训练耗时/数据预算。训练 loss 下降不等于闭环策略更好。
+- 有限数据上的局部增益称为“此任务、此模型、此采集策略下的边际价值”，不要外推为通用机器人小时定价或 scaling law。
+- 零收益也是可用结果：检查测量灵敏度、错位是否真正生效、基线强弱，再决定重做或收窄命题。
+
+可成为真实贡献的候选：episode 边界处时间窗口处理的最小复现与修复；未知时间语义的显式校验；一个可插拔延迟扰动 wrapper；回归评测脚本。先查上游实现和现有 issues，证实缺口后提交，不把已有功能换名包装为创新，也不预先声称一定会被合并。
+
+10. 导师式方向选择与进展判断
+
+| 方向 | 与现有背景的连接 | 成为主方向前必须通过的实践 |
+|---|---|---|
+| 数据选择、数据质量与策略学习 | 时点一致性、数据工程、统计实验 | 亲自训练策略并证明数据干预如何改变闭环表现 |
+| 闭环评测、可靠性、失效归因 | FLAI、回归测试、生产监控 | 故障注入能复现真实失败；指标对变化敏感且不被简单刷分 |
+| 模仿学习/VLA 后训练 | PyTorch、优化与模型迭代 | 可复现一个基线，理解动作表示/normalization/chunking，并做一个合理消融 |
+| WBC、接触控制、动力学 | 优化基础可用 | 写出并调通控制器，理解约束/接触，持续接触真机或高质量实验平台 |
+| 世界模型、基础模型预训练 | 建模背景可用 | 有明确的新问题、数据和算力条件，以及与强基线对照的证据 |
+
+前三周的试选题：A 数据检查与修复，B 延迟/失败评测，C 小策略训练；每项用 4–6 小时亲做。评分按问题是否反复出现、数据/平台是否可获得、4 周内能否形成闭环、自己是否愿意长期读/debug，各 0–2 分；需要合作方/算力才能推进却暂时拿不到的方向降优先级。
+
+12 周目标是独立完成一个可复现实验并得到一次外部技术评审。6–12 个月在两种以上任务/平台持续解决同类问题，才开始形成窄领域专长；更长期的专家身份来自方法被他人复现、使用与检验，不来自职位名称或看过多少模型。
+
+11. 个性化资料与仓库版本
+
+原始本地手册根据个人背景和私人 Drive 材料定制。仓库版保留通用学习、安装与实验流程，不附个人简历或私人文档链接；原始文件仍保存在本地。
+
+这是一份起步时的历史指南。后来完成的 Notebook、MuJoCo 与策略训练验收，以 [实验验证记录](../../robot_learning_loops/VALIDATION.md) 为准。

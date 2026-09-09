@@ -1,0 +1,1212 @@
+[
+  {
+    "path": ".gitignore",
+    "bytes": 241,
+    "sha256": "8f5ebc4bce40b0e81f9a2432609acc67c766c8487dcabb641c1867f29814ecda"
+  },
+  {
+    "path": "EXPORT.md",
+    "bytes": 2196,
+    "sha256": "3e77559d6b6e6ea80ffe0983d31fbac1144b4c2cf45f83e2a3e92f0e7f0757aa"
+  },
+  {
+    "path": "README.md",
+    "bytes": 3267,
+    "sha256": "d5e181a0ee78d7f53994c6a1200b51774d968fcb573c8cfceab7d35e60506247"
+  },
+  {
+    "path": "day0/README.md",
+    "bytes": 3634,
+    "sha256": "36a3a2b620926f1a73cd4122740aae7f3281707ed515ae701384ea329c611cd4"
+  },
+  {
+    "path": "day0/chatgpt/START_HERE.md",
+    "bytes": 22820,
+    "sha256": "b3826b4a83600e32517e0b433bdb0fd537d868c3e0afed064e6cd08bcefe2ab7"
+  },
+  {
+    "path": "day0/chatgpt/mac_selfcheck.sh",
+    "bytes": 1704,
+    "sha256": "2333e6ba70259520e1d5508769fe9c76ae5ad4791d6db004e0905d8875971176"
+  },
+  {
+    "path": "day0/chatgpt/smoke_test.py",
+    "bytes": 2828,
+    "sha256": "90b59c2905d1c842a1fc4b561a780649d990c92a0a3e734702fccbe4c3480421"
+  },
+  {
+    "path": "day0/chatgpt/timing_lab.py",
+    "bytes": 4503,
+    "sha256": "3f1c15f66abaa592225be2d0c52a70c9db09acf817815fb7908cdc8501fcd1df"
+  },
+  {
+    "path": "day0/check_env.sh",
+    "bytes": 2088,
+    "sha256": "ba299d2774c0e9616ffdf3c28ed597d53db8434e0b638b74feeab610ca7e245c"
+  },
+  {
+    "path": "day0/exercises/EXERCISES.md",
+    "bytes": 3533,
+    "sha256": "2b101d7962aa3c0be62a33de5c243afa2e9e5e8a99c30755e27a17ef78f422ef"
+  },
+  {
+    "path": "day0/smoke/00_torch_gpu.py",
+    "bytes": 930,
+    "sha256": "cb73f16b7a9fab0923bc2cbcfc468af5f3a0ae15b2bcffe6c788223a452d6436"
+  },
+  {
+    "path": "day0/smoke/01_lerobot_dataset.py",
+    "bytes": 997,
+    "sha256": "ce928e5444b7ce7a2a2c0974ccf05a52c342e7d715d69dbab8f8037e9f9d129b"
+  },
+  {
+    "path": "day0/smoke/02_mujoco.py",
+    "bytes": 831,
+    "sha256": "40a0dc4f03b2ad10ad6b729e0d000b93f3237c483b83e47c2453f6a09d2e3c64"
+  },
+  {
+    "path": "downloads/README.md",
+    "bytes": 510,
+    "sha256": "349992a4ea221a41e8b3f709d385e7e479a17dbbdc5a9c237e711c5ebd9b9a81"
+  },
+  {
+    "path": "downloads/physical_ai_starter.zip",
+    "bytes": 16001,
+    "sha256": "0ee548cb929ce2eaf02760ac1214607cda0356073193122ddcb9fae5d08a6743"
+  },
+  {
+    "path": "downloads/robot_learning_loops.zip",
+    "bytes": 1649762,
+    "sha256": "cedc6cd880b2093acae6d262f44c43723cb5ecc29713c632974c09ff93f430ce"
+  },
+  {
+    "path": "notebooks/00_machine_baseline.ipynb",
+    "bytes": 4464,
+    "sha256": "3f35f4536a6eaa129e880affc48d679dec7f6f342294fbe50f553224dbe194ed"
+  },
+  {
+    "path": "notebooks/01_dataset_anatomy.ipynb",
+    "bytes": 7155,
+    "sha256": "f94a0f423c043f83d8b7debb31f23ccf62e8584b8a1d6f5a622d3ef34b5056b1"
+  },
+  {
+    "path": "notebooks/02_first_training_loop.ipynb",
+    "bytes": 6069,
+    "sha256": "0e0b05dd38c5c94634d34993797878325a7ccb4ba96b5cf3d4b2af5b13e286db"
+  },
+  {
+    "path": "notebooks/03_eval_statistics.ipynb",
+    "bytes": 5633,
+    "sha256": "005184f5b0195d2245f9004fa686e5589fd636dfc9b267bf10c85db3eaa833b0"
+  },
+  {
+    "path": "notebooks/04_data_ablation.ipynb",
+    "bytes": 5472,
+    "sha256": "ce36d2a9f176633cf30832e6d7e6b41b19d901c22f8cdc71d7464422103d1a05"
+  },
+  {
+    "path": "notebooks/05_failure_attribution.ipynb",
+    "bytes": 5434,
+    "sha256": "58a5857ef119d5491cd309a8bb37dc6994ffd5618673d7e400cbaa0e13e92fca"
+  },
+  {
+    "path": "notebooks/06_intervention_iteration.ipynb",
+    "bytes": 4247,
+    "sha256": "2f7a2bc4590cb996b21439d45f8267928d9c2d42c181e3d792c4bc21bb812572"
+  },
+  {
+    "path": "notebooks/07_benchmark_transfer.ipynb",
+    "bytes": 4967,
+    "sha256": "e89da73a562560ad943bd607a6327bd227fedc4fa8baac77403e10930b4ab59e"
+  },
+  {
+    "path": "notebooks/08_eqs_capstone.ipynb",
+    "bytes": 7348,
+    "sha256": "f22e88c5d51cc5554f13f8cc38d4c04498f514d46c79a59f87d0481e73dd9d27"
+  },
+  {
+    "path": "notebooks/README.md",
+    "bytes": 3669,
+    "sha256": "54a702669ddab9a9a3c8f911449d2cc32881ce2f9f24b9af2686d05b84f4ac54"
+  },
+  {
+    "path": "notebooks/nbutils.py",
+    "bytes": 2959,
+    "sha256": "e608f49891d98441fd108d18187b37251d88e77f130e93d6192b7aa7da2bf80a"
+  },
+  {
+    "path": "robot_learning_loops/.gitignore",
+    "bytes": 477,
+    "sha256": "e1511c8072d93f8023fb5f716ade58a53e9b5a0a79b8041f720d4d158efd69a3"
+  },
+  {
+    "path": "robot_learning_loops/.python-version",
+    "bytes": 5,
+    "sha256": "7b55f8e67b5623c4bef3fa691288da9437d79d3aba156de48d481db32ac7d16d"
+  },
+  {
+    "path": "robot_learning_loops/README.md",
+    "bytes": 7668,
+    "sha256": "24290b44166ad0aafea048eba20c33fc48f47da1a9003ff12dfd888983147b80"
+  },
+  {
+    "path": "robot_learning_loops/VALIDATION.md",
+    "bytes": 2362,
+    "sha256": "57df596c566d71f4d5da815782ff2d530c7290ea4eed74041bacc56530ecebab"
+  },
+  {
+    "path": "robot_learning_loops/common.py",
+    "bytes": 5876,
+    "sha256": "dd2ace33f9882bb711f19d4baf3c7d8d62e7e8b5d3033f68c2f4ab02394f9022"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/bc.gif",
+    "bytes": 72953,
+    "sha256": "b78a33c0226a2d0c228b7a468541fb3542aac7600515cc72d8ba79ae4718f84b"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/bc_training.png",
+    "bytes": 44359,
+    "sha256": "c844356f02a49d2c01252d0513695d7ed5d96e8ff92d0dcf90c7f7a5d8a172e4"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/comparison.png",
+    "bytes": 59810,
+    "sha256": "7fde2f048eda284ba45d46409daa168817bdd94515baec18e84158d16278258a"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/controlled_paired_deltas.csv",
+    "bytes": 337,
+    "sha256": "747fdf7e96d3d29503f61ac8c5596e286cbf661cb8e7b883345ee7b6ef5cde71"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/dagger.gif",
+    "bytes": 75352,
+    "sha256": "9e469a4fd768f9b712cf0018516d358a4a690c4b62368c4344e687a15c0e9366"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/data_audit.csv",
+    "bytes": 63,
+    "sha256": "9595a3f9ef8e89dc5498388f47f3ddb97447fcb9c82b9e384acb0dba7c4e38b5"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/episodes.csv",
+    "bytes": 27868,
+    "sha256": "3973756f95ab4c9643f14078369f11fefdc8ef13d3411958882fab953ec94c2c"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/failure_review/bc.gif",
+    "bytes": 90215,
+    "sha256": "0bbd72bcf71499657be2ba51ea972347abf1edc5578c694564f4a9244fa63818"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/failure_review/dagger.gif",
+    "bytes": 74068,
+    "sha256": "7767850e7b572f839278bf69f79969bc8e598e38e733d39abef30eca3de7e510"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/manifest.json",
+    "bytes": 1144,
+    "sha256": "c9e944a027ed62870ce28ec65642a3ae75ae5cb3630855b5ac6c015042660230"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/more_expert.gif",
+    "bytes": 72009,
+    "sha256": "35f393256150f206cdb41d7db46744e2178500ef95dae9e0f663564f24a461e2"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/more_updates.gif",
+    "bytes": 70076,
+    "sha256": "12d2cc6eb2ee5a8c79a23c922c17734c5f070ffa1073f5edf57f81dcedb715a3"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/notebook_summary.json",
+    "bytes": 295,
+    "sha256": "ac8056f66376dedfd5307b65dbc3fa0a1a3395bb9dc679dbb393c328cc09fe7c"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/paired_deltas.csv",
+    "bytes": 843,
+    "sha256": "7f7eb1cb30054c229bdc9e1144b64c288a4b5bc0da2f06b481c0bd769cb38cef"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/random.gif",
+    "bytes": 91129,
+    "sha256": "018c829576d1f1bd9f84a9c5b0c0974680feab609af8a9bf965d9a8d4ed4e29f"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/raw_trajectory.png",
+    "bytes": 76997,
+    "sha256": "ee7b9519111552c1e1118d4a7430614dd6a94100caf0b9a8537d6aed5777c436"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/review.md",
+    "bytes": 2138,
+    "sha256": "5cca5f6b6b70c074774d51099fabdddcb0a57872421ece2bcd1ea54ba112bbbb"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/summary.csv",
+    "bytes": 914,
+    "sha256": "20d936fc8180edc013c79349365467a2a5ea10161c6f389d111d786287c3324c"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/teacher.gif",
+    "bytes": 71741,
+    "sha256": "d92104311d01bcaac4b4435774998d939816eb05a7544971dee7b067f71a8243"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/training.csv",
+    "bytes": 2506,
+    "sha256": "9b6142b88c3493af232f25a451f08f28a0f08b9a5a3f64c76f44d32d60579ec1"
+  },
+  {
+    "path": "robot_learning_loops/example_results/01-notebook/zero.gif",
+    "bytes": 45043,
+    "sha256": "bb09bf173366e544a252cce5c27ec340deb888ea99e5b34f99a17a8fcaf1c0d9"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/comparison.png",
+    "bytes": 51386,
+    "sha256": "13909f025f2191e59687257b6e94481cfcc0769da90dc6db07414179a2510b0e"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/episodes.csv",
+    "bytes": 1771,
+    "sha256": "036e62b473fcd851cc39cd1317251a0df0202af5b41a3fd82296b870529e7423"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/manifest.json",
+    "bytes": 717,
+    "sha256": "74f1af74529aa0933ccec0c4ea7eef844f0b679afadd32f029016b4894832f8b"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/paired_deltas.csv",
+    "bytes": 303,
+    "sha256": "42b7cdd0cea9191783a0906b8668c777b21dfa18a373326fee88d77fbd90bc35"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/random.gif",
+    "bytes": 170312,
+    "sha256": "4aed06c488ac60d2dde5c2c028e502b2c6c14cfe6a5986b1c784076c5c35f409"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/sac.gif",
+    "bytes": 88709,
+    "sha256": "a7d70ced198b79a0c6d11559cf987edd2f34fb0a8e21eb91c4f8f91b0a92712e"
+  },
+  {
+    "path": "robot_learning_loops/example_results/02-sac/summary.csv",
+    "bytes": 508,
+    "sha256": "d83f62b1e00ecf4731a77d8642b01495025c485346fbcf498d370845bbdcedc3"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/comparison.png",
+    "bytes": 52516,
+    "sha256": "27933c5db3b63aeeabd645b44a19752f8c975280bcc94e1d9b4b254887706bac"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/episodes.csv",
+    "bytes": 981,
+    "sha256": "042d9b72593cf1734442c06a62e7d9f8f91bc01495ac0d36be8461c5ab51dda3"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/known_dynamics_mpc.gif",
+    "bytes": 128225,
+    "sha256": "55fdfb093f9a32389ba2e6fb39ddebd5408daa97d943c45f9b492fce83f8e6aa"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/learned_dynamics_mpc.gif",
+    "bytes": 127622,
+    "sha256": "c3cede1c8be2b3f2d9e6ff8e30cdb3bf9d885ef84655e866cd78f7f4aa841f72"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/manifest.json",
+    "bytes": 903,
+    "sha256": "59d4764bb456ff3dbb34e5e4a218486680d4084fd8a39dfd9efffa14e02e844a"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/model_error.png",
+    "bytes": 38200,
+    "sha256": "9935cd7d5c9e30af1650826fb7834ff3be5d6fe468c68005c5f0e4f695749cdd"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/multistep_error.csv",
+    "bytes": 1208,
+    "sha256": "b316c3a2fb55833f82c08d9622830d91ff287a2cd19350a83db409ff151cb1be"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/paired_deltas.csv",
+    "bytes": 263,
+    "sha256": "6ef2deb46f7a46845d67638952b90d2d93a011f47a76344c914c5635731836fd"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/random.gif",
+    "bytes": 172252,
+    "sha256": "91207911348275c2b0d25b651db59fb9606987c9e1f785440d51bd3aa6511819"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/summary.csv",
+    "bytes": 315,
+    "sha256": "67a8b2d626223c4ddf4b7b134c9ead21cfa9721fb97bc82fc3d2774e501f7e64"
+  },
+  {
+    "path": "robot_learning_loops/example_results/03-world-model/training.csv",
+    "bytes": 572,
+    "sha256": "63825f026e69d53011c37768875688875e6f7f8dbda647f1614f60fb44b54628"
+  },
+  {
+    "path": "robot_learning_loops/frontier.py",
+    "bytes": 7443,
+    "sha256": "8f8c0f5bec64e954c2a78cea98a3617b7e07a966d9ec5ef577d3612173f7d090"
+  },
+  {
+    "path": "robot_learning_loops/lessons/00_闭环地图.md",
+    "bytes": 4132,
+    "sha256": "a334f94ad14b71e2c6018e8881288bdc923afb0d55a7c881d197e15bd38447ed"
+  },
+  {
+    "path": "robot_learning_loops/lessons/01_模仿学习与纠正数据.md",
+    "bytes": 5261,
+    "sha256": "bf31b8bc16914a41da6e0ad90d9f1361d6306b2b6119dc966edba352518e1094"
+  },
+  {
+    "path": "robot_learning_loops/lessons/02_强化学习.md",
+    "bytes": 3243,
+    "sha256": "464eee154de9b69f5ecbdca4024c6c25a2bc07e99ae1b638bae31d73f872528c"
+  },
+  {
+    "path": "robot_learning_loops/lessons/03_世界模型与规划.md",
+    "bytes": 3124,
+    "sha256": "474d6449507fee7315d415df3a0f148e0e9f3109875fbf27b99a2d5349752896"
+  },
+  {
+    "path": "robot_learning_loops/lessons/04_ACT与DiffusionPolicy.md",
+    "bytes": 5134,
+    "sha256": "a4bfbb2de93c312415c2706ebae95a9c6bf76c115c254a2a9a3b3f66d03783ab"
+  },
+  {
+    "path": "robot_learning_loops/lessons/05_VLA与真实执行.md",
+    "bytes": 4481,
+    "sha256": "9877d3bf932e68bc1e46b082c4668ab2fc132231b61397ac9297d6309957a883"
+  },
+  {
+    "path": "robot_learning_loops/lessons/实验记录模板.md",
+    "bytes": 1275,
+    "sha256": "6aa974b058b9861f67ac460dc28d637f5901f650be56ec4d113984fa7f530182"
+  },
+  {
+    "path": "robot_learning_loops/loop01_imitation.py",
+    "bytes": 10855,
+    "sha256": "4fe633692552b1db76c1ef20b42e7a9357ab93b040f30ab428ab9d13d5cdb8aa"
+  },
+  {
+    "path": "robot_learning_loops/loop02_reinforcement.py",
+    "bytes": 5510,
+    "sha256": "b88b58c19d5ef8d3e693a25e3b6e409a411b731f429a70a153291ab685cccff2"
+  },
+  {
+    "path": "robot_learning_loops/loop03_world_model.py",
+    "bytes": 10177,
+    "sha256": "281e4afcaeb9867ae6f04cedea22aea282b07bc904375250eaed9e0e8224db13"
+  },
+  {
+    "path": "robot_learning_loops/notebooks/01_机械臂模仿学习.html",
+    "bytes": 993526,
+    "sha256": "4f5e2814c0fc8c7b286ae2a82c9aa0e9b334aa0c1070cca7e3e85c2051ea889f"
+  },
+  {
+    "path": "robot_learning_loops/notebooks/01_机械臂模仿学习.ipynb",
+    "bytes": 655844,
+    "sha256": "b005b00bcc51f15d374cd7fadf79b2a06864bccc637c44d75231254703579964"
+  },
+  {
+    "path": "robot_learning_loops/notebooks/参考复盘.md",
+    "bytes": 4690,
+    "sha256": "37e0b10793f2f1b70f949cd5a41a8e8afdc904c3576c5178fd86bbd6a84b86db"
+  },
+  {
+    "path": "robot_learning_loops/pyproject.toml",
+    "bytes": 656,
+    "sha256": "f870c0b293647c529fe7d8d7658603cc56c1c3e574e7d253947945aa2203d051"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/bc.gif",
+    "bytes": 80852,
+    "sha256": "30340335e0a3cd21b4af970a63b865465cce46edecab4c74e02b76c48a73dbd4"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/bc.pt",
+    "bytes": 76277,
+    "sha256": "a0b9e99d422fe7ec65bf4fbd60389220170acd2e67798201dea832ea4478effb"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/comparison.png",
+    "bytes": 60743,
+    "sha256": "2e965464a25af2c09e8171e46489450f7a3503126f5845ac7675789489d4befd"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/dagger.gif",
+    "bytes": 75866,
+    "sha256": "065d112830f9bcd608f83c761d14ac4cfe328d63b83b990868feffc438ae56e2"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/dagger.pt",
+    "bytes": 76405,
+    "sha256": "e87bf12d990009b689c587c16d919814264e7a060652e932ee344932e2b4ac09"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/data_audit.json",
+    "bytes": 424,
+    "sha256": "b4c966cd21129851484f3d66e36c5b1fb69689cefe940b04dc819bb08fe5488f"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/episodes.csv",
+    "bytes": 7469,
+    "sha256": "74429f742f192996a0806b2c510b3005dcbe298684ba0e1882b55e419becb332"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/manifest.json",
+    "bytes": 645,
+    "sha256": "1f6a7a1b634a005c16e8ce532442983cac55a941128a3c1abc7b702469764428"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/more_expert.gif",
+    "bytes": 78470,
+    "sha256": "478dfb4d3a4c38fd4d24b98657f9fe54620baa0971c8274e6763a5525eedc23c"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/more_expert.pt",
+    "bytes": 76805,
+    "sha256": "ed00414075db11196c711c4c2308c8ae117361e2a69c0a8172dc11e39f88b16b"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/more_updates.gif",
+    "bytes": 79194,
+    "sha256": "8394669a61b290aef82c1f6a54630f992681c7e77fb4a5ca600fdbf080e3abe7"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/more_updates.pt",
+    "bytes": 76821,
+    "sha256": "9fcb6d6f61681c338586e618aafb44c96a3c47f01c1ca32b612fbda4f08d158b"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/offline_loss.png",
+    "bytes": 62971,
+    "sha256": "0b176ad5dadfcf2339c19bbe3035cd03a3286e0a0885d1393f462a3e231e51c7"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/paired_deltas.csv",
+    "bytes": 828,
+    "sha256": "5bab73da2d210d77ae47433cd04688a19d6eebba79564a911b50740e917fafc1"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/random.gif",
+    "bytes": 91129,
+    "sha256": "018c829576d1f1bd9f84a9c5b0c0974680feab609af8a9bf965d9a8d4ed4e29f"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/raw_dagger.npz",
+    "bytes": 91395,
+    "sha256": "336b2ef5840781033c5877216806e9dac5d1f9581717da935761c5d689643ce4"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/raw_more_expert.npz",
+    "bytes": 91246,
+    "sha256": "9f4bae58e564438c5a876d1dc8ceb1e4cdb4b1ab6c7eba0571fa52d179e843d0"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/raw_train.npz",
+    "bytes": 179411,
+    "sha256": "88ba05e2280328cbac6bf7a383dcf7abab3119d8c728de9e028491e9afd44516"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/raw_validation.npz",
+    "bytes": 120651,
+    "sha256": "a8435d4f5dd454578daf0f12d59c7fc561c1f63fa0134da1102444303c3d8247"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/summary.csv",
+    "bytes": 899,
+    "sha256": "7ac45338864d5af6e6ed4cb5d08a67c8e03b50e619ba566a1810ad65175b2cd5"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/teacher.gif",
+    "bytes": 71741,
+    "sha256": "d92104311d01bcaac4b4435774998d939816eb05a7544971dee7b067f71a8243"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/training.csv",
+    "bytes": 2423,
+    "sha256": "a951b903de7505579ded951fd83b0dccc8973f712beef1d8f840d7d65f360c1a"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181100-785000/zero.gif",
+    "bytes": 45043,
+    "sha256": "bb09bf173366e544a252cce5c27ec340deb888ea99e5b34f99a17a8fcaf1c0d9"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/bc.gif",
+    "bytes": 72953,
+    "sha256": "b78a33c0226a2d0c228b7a468541fb3542aac7600515cc72d8ba79ae4718f84b"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/bc.pt",
+    "bytes": 76277,
+    "sha256": "2445e2c91e7104d69f9cde0aab4e3fed4cf25cb0a40324952513cf528ac98385"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/comparison.png",
+    "bytes": 60200,
+    "sha256": "30a4898307f073c9c75a7fb0d8ff14b1b1a2e1b7810ecc0ce67d263ea65ee212"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/dagger.gif",
+    "bytes": 75352,
+    "sha256": "9e469a4fd768f9b712cf0018516d358a4a690c4b62368c4344e687a15c0e9366"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/dagger.pt",
+    "bytes": 76405,
+    "sha256": "cf9272c4d4fe45b6320aac1c061823b8486095ced6efcfbe5e8a3c9d798bd990"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/data_audit.json",
+    "bytes": 424,
+    "sha256": "44d6a30000b872b4e7bae964acaae0ba6d8d5c182da0a7da2c2e42d41746a791"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/episodes.csv",
+    "bytes": 27868,
+    "sha256": "70968c09d292ba8d63a20052963b223cab9a22c730cd1a5f4681c80a92ae7892"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/manifest.json",
+    "bytes": 747,
+    "sha256": "656a1ffae70bbdbce5bfbdfb77d18524c7da5df370718c3b845009f21457beeb"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/more_expert.gif",
+    "bytes": 72009,
+    "sha256": "35f393256150f206cdb41d7db46744e2178500ef95dae9e0f663564f24a461e2"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/more_expert.pt",
+    "bytes": 76805,
+    "sha256": "03b04dd37b7151f3affe0d1ee1c3c702352ff7541b68ac3e3a01886e70bc54a5"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/more_updates.gif",
+    "bytes": 70076,
+    "sha256": "12d2cc6eb2ee5a8c79a23c922c17734c5f070ffa1073f5edf57f81dcedb715a3"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/more_updates.pt",
+    "bytes": 76821,
+    "sha256": "35406d4b9dc1cf3a3cc34567be08308ba421495f67c2b6c12089d74c6be87d29"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/offline_loss.png",
+    "bytes": 57588,
+    "sha256": "d912aad6ece7f700ba65ed6ce874d7b5e4e75532ca68423280fa053558f07dd5"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/paired_deltas.csv",
+    "bytes": 843,
+    "sha256": "7f7eb1cb30054c229bdc9e1144b64c288a4b5bc0da2f06b481c0bd769cb38cef"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/random.gif",
+    "bytes": 91129,
+    "sha256": "018c829576d1f1bd9f84a9c5b0c0974680feab609af8a9bf965d9a8d4ed4e29f"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/raw_dagger.npz",
+    "bytes": 297902,
+    "sha256": "276091cb4432429f4420c2273c14402e327a504c3ea5a9006dd90f32c19a05b8"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/raw_more_expert.npz",
+    "bytes": 297614,
+    "sha256": "3fbb67b36d63c724b6d16e3304c4174404d9baa86a18665b8137bd343564d40a"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/raw_train.npz",
+    "bytes": 592506,
+    "sha256": "11feb7afa33e8301d4b79b39f3e5268c49590595574f00646bc512f49423ccd7"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/raw_validation.npz",
+    "bytes": 120651,
+    "sha256": "a8435d4f5dd454578daf0f12d59c7fc561c1f63fa0134da1102444303c3d8247"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/summary.csv",
+    "bytes": 911,
+    "sha256": "82c9666b9b966327b7b51f1c24c2d8d9ca430e2ad179db39da6a6e0ff671c100"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/teacher.gif",
+    "bytes": 71741,
+    "sha256": "d92104311d01bcaac4b4435774998d939816eb05a7544971dee7b067f71a8243"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/training.csv",
+    "bytes": 2506,
+    "sha256": "9b6142b88c3493af232f25a451f08f28a0f08b9a5a3f64c76f44d32d60579ec1"
+  },
+  {
+    "path": "robot_learning_loops/runs/01-imitation-20260908-181241-544000/zero.gif",
+    "bytes": 45043,
+    "sha256": "bb09bf173366e544a252cce5c27ec340deb888ea99e5b34f99a17a8fcaf1c0d9"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/comparison.png",
+    "bytes": 50718,
+    "sha256": "377b968f2eb395321cd73e2e5025558d01acc3463c35f9568b94d77303316fc8"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/episodes.csv",
+    "bytes": 899,
+    "sha256": "13fb749ccb45dfcefaa26cefa1944d6c257a66769d31039772821443064c4661"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/manifest.json",
+    "bytes": 812,
+    "sha256": "25cbe7fc38170fc9c501789561d86a8064adcd4963b5112b7d963c5eb7560315"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/paired_deltas.csv",
+    "bytes": 307,
+    "sha256": "6487e2a0bbd7575652c8c765f5c24e54517904d9e9595ea52142751aa00a0dac"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/policy.zip",
+    "bytes": 136420,
+    "sha256": "848afa702066724230b4573eb0f7ac655de789d60ddaf40e688e1e3489699f24"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/ppo.gif",
+    "bytes": 171319,
+    "sha256": "ae60087824439dfd27a02010efea3befd7c436622f61870950b3ddc1fbb1a883"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/random.gif",
+    "bytes": 170312,
+    "sha256": "4aed06c488ac60d2dde5c2c028e502b2c6c14cfe6a5986b1c784076c5c35f409"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/raw_experience.npz",
+    "bytes": 36456,
+    "sha256": "6ed0cc6b56933d27086776ff2541571cbaed1e8621bea64f7fbad040780bd999"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/summary.csv",
+    "bytes": 501,
+    "sha256": "eb91aba5fbc4e7e480e2e47b4f1fac6004df4bf2d991293502b9e1416b5283cb"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-ppo-20260908-181543-707000/training/progress.csv",
+    "bytes": 139,
+    "sha256": "a5984bf4fd93971ccd2bbbc4717c395d94d70433a0fdd2cb44ecf6db28931506"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/comparison.png",
+    "bytes": 51386,
+    "sha256": "13909f025f2191e59687257b6e94481cfcc0769da90dc6db07414179a2510b0e"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/episodes.csv",
+    "bytes": 1771,
+    "sha256": "036e62b473fcd851cc39cd1317251a0df0202af5b41a3fd82296b870529e7423"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/manifest.json",
+    "bytes": 717,
+    "sha256": "74f1af74529aa0933ccec0c4ea7eef844f0b679afadd32f029016b4894832f8b"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/paired_deltas.csv",
+    "bytes": 303,
+    "sha256": "42b7cdd0cea9191783a0906b8668c777b21dfa18a373326fee88d77fbd90bc35"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/policy.zip",
+    "bytes": 245593,
+    "sha256": "beafec371c77a0e81edaa98fa17a376901c78698f5f2d23b6121a392d6be09ea"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/random.gif",
+    "bytes": 170312,
+    "sha256": "4aed06c488ac60d2dde5c2c028e502b2c6c14cfe6a5986b1c784076c5c35f409"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/raw_experience.npz",
+    "bytes": 334002,
+    "sha256": "56a37d024297b0d4b63edb85d9271477a88fe525163badce9799024b1c7d79d4"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/replay_buffer.pkl",
+    "bytes": 401508,
+    "sha256": "f2474e4caf53b0c0dae921e78a13a2f545b56a70fef86a99d6b8f039a0976b53"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/sac.gif",
+    "bytes": 88709,
+    "sha256": "a7d70ced198b79a0c6d11559cf987edd2f34fb0a8e21eb91c4f8f91b0a92712e"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/summary.csv",
+    "bytes": 508,
+    "sha256": "d83f62b1e00ecf4731a77d8642b01495025c485346fbcf498d370845bbdcedc3"
+  },
+  {
+    "path": "robot_learning_loops/runs/02-sac-20260908-181241-848000/training/progress.csv",
+    "bytes": 6352,
+    "sha256": "8b16cf170f953949e5558ebe8d8297805ceb8055963812c79b9e690255893df2"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/comparison.png",
+    "bytes": 52534,
+    "sha256": "5924629ac8fabb191b0e6c09c2d65cb777930fb62103240bd16dc757e9a115e8"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/dynamics.pt",
+    "bytes": 74197,
+    "sha256": "286851b8e7f141d1102ca7617485a3ead7862721cf6c4145c281362e6cdda1a4"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/episodes.csv",
+    "bytes": 419,
+    "sha256": "38427cd252c04cfd061d3ceb9b2d7dfa6d077e14c800fb399a62af1375a1fb28"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/known_dynamics_mpc.gif",
+    "bytes": 128947,
+    "sha256": "7c021f549fbdc49220257695322f5f08f1976d8ee35ac921960c81764a0a2567"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/learned_dynamics_mpc.gif",
+    "bytes": 132233,
+    "sha256": "fa7d8a92223947a8e15eb94d79459f9f21b7cdc8de92b06319fa13faaefda893"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/manifest.json",
+    "bytes": 900,
+    "sha256": "5a3f977dfa9c7b31901af2edc67665cecfb3ee92637639867edb57f5af6afc75"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/model_error.png",
+    "bytes": 39729,
+    "sha256": "3f3832e2a4c6ac7ad6aa7200428a85a412a1b86528d5c3ac20e6fb7a5afb2498"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/multistep_error.csv",
+    "bytes": 1174,
+    "sha256": "e7cd666ef6ae5a78b0f4241e3309eb340ec906156351869c0ea9ff7a48553fef"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/paired_deltas.csv",
+    "bytes": 261,
+    "sha256": "8de56af24b9ab928531c3c6498e0d7a6b7245c5b439dfe6fbde2f4a6d0920146"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/random.gif",
+    "bytes": 172252,
+    "sha256": "91207911348275c2b0d25b651db59fb9606987c9e1f785440d51bd3aa6511819"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/raw_train.npz",
+    "bytes": 82729,
+    "sha256": "9ac8aa53ec764b9e5862377faeda24491de281b9e56bdd6a6453f1a67d2947bf"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/raw_validation.npz",
+    "bytes": 69354,
+    "sha256": "62e48974ca133dccfc25cdfc79219879b35db21e3b225f67432222b3b58914f8"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/summary.csv",
+    "bytes": 317,
+    "sha256": "60084fa08347c5a5a449509f2f98871154459da705ccc925eddda2873338bb68"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181434-431000/training.csv",
+    "bytes": 552,
+    "sha256": "33fa34dc2c1923b91355a29e212576f576e443b368f9f2aa380df55ac0a55743"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/comparison.png",
+    "bytes": 52516,
+    "sha256": "27933c5db3b63aeeabd645b44a19752f8c975280bcc94e1d9b4b254887706bac"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/dynamics.pt",
+    "bytes": 74197,
+    "sha256": "e9f025a871e29cbd46001915265b53ed60e28bd6601111b26d8ad3fdc789e529"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/episodes.csv",
+    "bytes": 981,
+    "sha256": "042d9b72593cf1734442c06a62e7d9f8f91bc01495ac0d36be8461c5ab51dda3"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/known_dynamics_mpc.gif",
+    "bytes": 128225,
+    "sha256": "55fdfb093f9a32389ba2e6fb39ddebd5408daa97d943c45f9b492fce83f8e6aa"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/learned_dynamics_mpc.gif",
+    "bytes": 127622,
+    "sha256": "c3cede1c8be2b3f2d9e6ff8e30cdb3bf9d885ef84655e866cd78f7f4aa841f72"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/manifest.json",
+    "bytes": 903,
+    "sha256": "59d4764bb456ff3dbb34e5e4a218486680d4084fd8a39dfd9efffa14e02e844a"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/model_error.png",
+    "bytes": 38200,
+    "sha256": "9935cd7d5c9e30af1650826fb7834ff3be5d6fe468c68005c5f0e4f695749cdd"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/multistep_error.csv",
+    "bytes": 1208,
+    "sha256": "b316c3a2fb55833f82c08d9622830d91ff287a2cd19350a83db409ff151cb1be"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/paired_deltas.csv",
+    "bytes": 263,
+    "sha256": "6ef2deb46f7a46845d67638952b90d2d93a011f47a76344c914c5635731836fd"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/random.gif",
+    "bytes": 172252,
+    "sha256": "91207911348275c2b0d25b651db59fb9606987c9e1f785440d51bd3aa6511819"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/raw_train.npz",
+    "bytes": 405460,
+    "sha256": "c260279559fd5133d5ea91e6096f7aac4dfdf2d4a55b71786a2bea9abce60568"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/raw_validation.npz",
+    "bytes": 69354,
+    "sha256": "62e48974ca133dccfc25cdfc79219879b35db21e3b225f67432222b3b58914f8"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/summary.csv",
+    "bytes": 315,
+    "sha256": "67a8b2d626223c4ddf4b7b134c9ead21cfa9721fb97bc82fc3d2774e501f7e64"
+  },
+  {
+    "path": "robot_learning_loops/runs/03-world-model-20260908-181629-865000/training.csv",
+    "bytes": 572,
+    "sha256": "63825f026e69d53011c37768875688875e6f7f8dbda647f1614f60fb44b54628"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/bc.gif",
+    "bytes": 72953,
+    "sha256": "b78a33c0226a2d0c228b7a468541fb3542aac7600515cc72d8ba79ae4718f84b"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/bc.pt",
+    "bytes": 76277,
+    "sha256": "2445e2c91e7104d69f9cde0aab4e3fed4cf25cb0a40324952513cf528ac98385"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/bc_training.png",
+    "bytes": 44359,
+    "sha256": "c844356f02a49d2c01252d0513695d7ed5d96e8ff92d0dcf90c7f7a5d8a172e4"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/comparison.png",
+    "bytes": 59810,
+    "sha256": "7fde2f048eda284ba45d46409daa168817bdd94515baec18e84158d16278258a"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/controlled_paired_deltas.csv",
+    "bytes": 337,
+    "sha256": "747fdf7e96d3d29503f61ac8c5596e286cbf661cb8e7b883345ee7b6ef5cde71"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/dagger.gif",
+    "bytes": 75352,
+    "sha256": "9e469a4fd768f9b712cf0018516d358a4a690c4b62368c4344e687a15c0e9366"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/dagger.pt",
+    "bytes": 76405,
+    "sha256": "cf9272c4d4fe45b6320aac1c061823b8486095ced6efcfbe5e8a3c9d798bd990"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/data_audit.csv",
+    "bytes": 63,
+    "sha256": "9595a3f9ef8e89dc5498388f47f3ddb97447fcb9c82b9e384acb0dba7c4e38b5"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/episodes.csv",
+    "bytes": 27868,
+    "sha256": "3973756f95ab4c9643f14078369f11fefdc8ef13d3411958882fab953ec94c2c"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/failure_review/bc.gif",
+    "bytes": 90215,
+    "sha256": "0bbd72bcf71499657be2ba51ea972347abf1edc5578c694564f4a9244fa63818"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/failure_review/dagger.gif",
+    "bytes": 74068,
+    "sha256": "7767850e7b572f839278bf69f79969bc8e598e38e733d39abef30eca3de7e510"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/manifest.json",
+    "bytes": 1048,
+    "sha256": "aee71d21ed7aacef5bbd0cc1c968b34d31a119e22cd644388f824837f7445dd8"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/more_expert.gif",
+    "bytes": 72009,
+    "sha256": "35f393256150f206cdb41d7db46744e2178500ef95dae9e0f663564f24a461e2"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/more_expert.pt",
+    "bytes": 76805,
+    "sha256": "03b04dd37b7151f3affe0d1ee1c3c702352ff7541b68ac3e3a01886e70bc54a5"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/more_updates.gif",
+    "bytes": 70076,
+    "sha256": "12d2cc6eb2ee5a8c79a23c922c17734c5f070ffa1073f5edf57f81dcedb715a3"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/more_updates.pt",
+    "bytes": 76821,
+    "sha256": "35406d4b9dc1cf3a3cc34567be08308ba421495f67c2b6c12089d74c6be87d29"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/notebook_summary.json",
+    "bytes": 294,
+    "sha256": "7700b0397e6b54f59a29cd08d21e179ea9a56b0a1d044d691b6c55edf510a0cc"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/paired_deltas.csv",
+    "bytes": 843,
+    "sha256": "7f7eb1cb30054c229bdc9e1144b64c288a4b5bc0da2f06b481c0bd769cb38cef"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/random.gif",
+    "bytes": 91129,
+    "sha256": "018c829576d1f1bd9f84a9c5b0c0974680feab609af8a9bf965d9a8d4ed4e29f"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/raw_dagger.npz",
+    "bytes": 297902,
+    "sha256": "276091cb4432429f4420c2273c14402e327a504c3ea5a9006dd90f32c19a05b8"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/raw_more_expert.npz",
+    "bytes": 297614,
+    "sha256": "3fbb67b36d63c724b6d16e3304c4174404d9baa86a18665b8137bd343564d40a"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/raw_train.npz",
+    "bytes": 592506,
+    "sha256": "11feb7afa33e8301d4b79b39f3e5268c49590595574f00646bc512f49423ccd7"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/raw_trajectory.png",
+    "bytes": 76997,
+    "sha256": "ee7b9519111552c1e1118d4a7430614dd6a94100caf0b9a8537d6aed5777c436"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/raw_validation.npz",
+    "bytes": 120651,
+    "sha256": "a8435d4f5dd454578daf0f12d59c7fc561c1f63fa0134da1102444303c3d8247"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/review.md",
+    "bytes": 2138,
+    "sha256": "5cca5f6b6b70c074774d51099fabdddcb0a57872421ece2bcd1ea54ba112bbbb"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/summary.csv",
+    "bytes": 914,
+    "sha256": "20d936fc8180edc013c79349365467a2a5ea10161c6f389d111d786287c3324c"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/teacher.gif",
+    "bytes": 71741,
+    "sha256": "d92104311d01bcaac4b4435774998d939816eb05a7544971dee7b067f71a8243"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/training.csv",
+    "bytes": 2506,
+    "sha256": "9b6142b88c3493af232f25a451f08f28a0f08b9a5a3f64c76f44d32d60579ec1"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221456-313000/zero.gif",
+    "bytes": 45043,
+    "sha256": "bb09bf173366e544a252cce5c27ec340deb888ea99e5b34f99a17a8fcaf1c0d9"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/bc.gif",
+    "bytes": 72953,
+    "sha256": "b78a33c0226a2d0c228b7a468541fb3542aac7600515cc72d8ba79ae4718f84b"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/bc.pt",
+    "bytes": 76277,
+    "sha256": "2445e2c91e7104d69f9cde0aab4e3fed4cf25cb0a40324952513cf528ac98385"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/bc_training.png",
+    "bytes": 44359,
+    "sha256": "c844356f02a49d2c01252d0513695d7ed5d96e8ff92d0dcf90c7f7a5d8a172e4"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/comparison.png",
+    "bytes": 59810,
+    "sha256": "7fde2f048eda284ba45d46409daa168817bdd94515baec18e84158d16278258a"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/controlled_paired_deltas.csv",
+    "bytes": 337,
+    "sha256": "747fdf7e96d3d29503f61ac8c5596e286cbf661cb8e7b883345ee7b6ef5cde71"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/dagger.gif",
+    "bytes": 75352,
+    "sha256": "9e469a4fd768f9b712cf0018516d358a4a690c4b62368c4344e687a15c0e9366"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/dagger.pt",
+    "bytes": 76405,
+    "sha256": "cf9272c4d4fe45b6320aac1c061823b8486095ced6efcfbe5e8a3c9d798bd990"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/data_audit.csv",
+    "bytes": 63,
+    "sha256": "9595a3f9ef8e89dc5498388f47f3ddb97447fcb9c82b9e384acb0dba7c4e38b5"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/episodes.csv",
+    "bytes": 27868,
+    "sha256": "3973756f95ab4c9643f14078369f11fefdc8ef13d3411958882fab953ec94c2c"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/failure_review/bc.gif",
+    "bytes": 90215,
+    "sha256": "0bbd72bcf71499657be2ba51ea972347abf1edc5578c694564f4a9244fa63818"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/failure_review/dagger.gif",
+    "bytes": 74068,
+    "sha256": "7767850e7b572f839278bf69f79969bc8e598e38e733d39abef30eca3de7e510"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/manifest.json",
+    "bytes": 1144,
+    "sha256": "c9e944a027ed62870ce28ec65642a3ae75ae5cb3630855b5ac6c015042660230"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/more_expert.gif",
+    "bytes": 72009,
+    "sha256": "35f393256150f206cdb41d7db46744e2178500ef95dae9e0f663564f24a461e2"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/more_expert.pt",
+    "bytes": 76805,
+    "sha256": "03b04dd37b7151f3affe0d1ee1c3c702352ff7541b68ac3e3a01886e70bc54a5"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/more_updates.gif",
+    "bytes": 70076,
+    "sha256": "12d2cc6eb2ee5a8c79a23c922c17734c5f070ffa1073f5edf57f81dcedb715a3"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/more_updates.pt",
+    "bytes": 76821,
+    "sha256": "35406d4b9dc1cf3a3cc34567be08308ba421495f67c2b6c12089d74c6be87d29"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/notebook_summary.json",
+    "bytes": 295,
+    "sha256": "ac8056f66376dedfd5307b65dbc3fa0a1a3395bb9dc679dbb393c328cc09fe7c"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/paired_deltas.csv",
+    "bytes": 843,
+    "sha256": "7f7eb1cb30054c229bdc9e1144b64c288a4b5bc0da2f06b481c0bd769cb38cef"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/random.gif",
+    "bytes": 91129,
+    "sha256": "018c829576d1f1bd9f84a9c5b0c0974680feab609af8a9bf965d9a8d4ed4e29f"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/raw_dagger.npz",
+    "bytes": 297902,
+    "sha256": "276091cb4432429f4420c2273c14402e327a504c3ea5a9006dd90f32c19a05b8"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/raw_more_expert.npz",
+    "bytes": 297614,
+    "sha256": "3fbb67b36d63c724b6d16e3304c4174404d9baa86a18665b8137bd343564d40a"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/raw_train.npz",
+    "bytes": 592506,
+    "sha256": "11feb7afa33e8301d4b79b39f3e5268c49590595574f00646bc512f49423ccd7"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/raw_trajectory.png",
+    "bytes": 76997,
+    "sha256": "ee7b9519111552c1e1118d4a7430614dd6a94100caf0b9a8537d6aed5777c436"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/raw_validation.npz",
+    "bytes": 120651,
+    "sha256": "a8435d4f5dd454578daf0f12d59c7fc561c1f63fa0134da1102444303c3d8247"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/review.md",
+    "bytes": 2138,
+    "sha256": "5cca5f6b6b70c074774d51099fabdddcb0a57872421ece2bcd1ea54ba112bbbb"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/summary.csv",
+    "bytes": 914,
+    "sha256": "20d936fc8180edc013c79349365467a2a5ea10161c6f389d111d786287c3324c"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/teacher.gif",
+    "bytes": 71741,
+    "sha256": "d92104311d01bcaac4b4435774998d939816eb05a7544971dee7b067f71a8243"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/training.csv",
+    "bytes": 2506,
+    "sha256": "9b6142b88c3493af232f25a451f08f28a0f08b9a5a3f64c76f44d32d60579ec1"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-221649-436000/zero.gif",
+    "bytes": 45043,
+    "sha256": "bb09bf173366e544a252cce5c27ec340deb888ea99e5b34f99a17a8fcaf1c0d9"
+  },
+  {
+    "path": "robot_learning_loops/runs/notebook01-20260909-223632-819000/manifest.json",
+    "bytes": 1144,
+    "sha256": "c9e944a027ed62870ce28ec65642a3ae75ae5cb3630855b5ac6c015042660230"
+  },
+  {
+    "path": "robot_learning_loops/test_contracts.py",
+    "bytes": 3483,
+    "sha256": "cd515fa9eacdd8ecd1cdc76ca6025336c4321a19785b843bf1c920f8bca9b7a7"
+  },
+  {
+    "path": "robot_learning_loops/uv.lock",
+    "bytes": 184295,
+    "sha256": "e7e3000f455dcacc9b589e41df4585528efb2289b40b71563c6fcfab2e1c885b"
+  }
+]

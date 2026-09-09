@@ -1,0 +1,3 @@
+,rows,episodes,audit
+train,4000,80,PASS
+validation,800,16,PASS

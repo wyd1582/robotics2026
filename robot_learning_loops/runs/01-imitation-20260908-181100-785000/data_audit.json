@@ -1,0 +1,15 @@
+{
+  "train_rows": 1200,
+  "train_episodes": 24,
+  "validation_episodes": 16,
+  "action_label": "computed-torque teacher command",
+  "sample_time_unit": "seconds, reset within episode",
+  "observation_dimension": 10,
+  "control_period_seconds": 0.02,
+  "actuator_gear": 200,
+  "success_definition": "mean fingertip-target distance over last 10 steps < 0.025m; custom metric",
+  "eval_seed_range": [
+    10000,
+    10007
+  ]
+}

@@ -1,0 +1,16 @@
+policy,condition,seed,return,upright_fraction
+random,action_repeat_3,10000,-782.3465282814345,0.085
+random,action_repeat_3,10001,-1275.680757004946,0.0
+random,action_repeat_3,10002,-1270.6169303496815,0.0
+random,action_repeat_3,10003,-986.2462691927125,0.0
+random,action_repeat_3,10004,-1317.1176094335415,0.0
+known_dynamics_mpc,action_repeat_3,10000,-1.5079017570936688,1.0
+known_dynamics_mpc,action_repeat_3,10001,-123.1831949029717,0.875
+known_dynamics_mpc,action_repeat_3,10002,-125.15481960549275,0.865
+known_dynamics_mpc,action_repeat_3,10003,-121.81700942836433,0.855
+known_dynamics_mpc,action_repeat_3,10004,-250.6960296906156,0.675
+learned_dynamics_mpc,action_repeat_3,10000,-1.431017409801335,1.0
+learned_dynamics_mpc,action_repeat_3,10001,-122.92969569792425,0.88
+learned_dynamics_mpc,action_repeat_3,10002,-125.00640401256923,0.865
+learned_dynamics_mpc,action_repeat_3,10003,-122.71486287339737,0.875
+learned_dynamics_mpc,action_repeat_3,10004,-252.9900859176861,0.635

@@ -1,0 +1,3 @@
+policy,reference,condition,mean_delta,ci_low,ci_high,n_pairs
+known_dynamics_mpc,random,action_repeat_3,1001.9298277755555,870.4814500163118,1132.4681850870504,5
+learned_dynamics_mpc,random,action_repeat_3,1001.3872056701875,863.3251866853001,1130.7420327668428,5

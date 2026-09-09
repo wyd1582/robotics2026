@@ -1,0 +1,26 @@
+{
+  "experiment": "01-imitation",
+  "args": {
+    "quick": false,
+    "seed": 7,
+    "device": "cpu",
+    "episodes": 80,
+    "updates": 2000,
+    "eval_episodes": 30
+  },
+  "versions": {
+    "numpy": "2.5.3",
+    "torch": "2.14.0",
+    "gymnasium": "1.3.0",
+    "mujoco": "3.12.0",
+    "stable-baselines3": "2.9.0"
+  },
+  "python": "3.12.14",
+  "architecture": "arm64",
+  "source_sha256": {
+    "loop01_imitation.py": "66b39c508945666ff306b6794cacc5d2cd250b9c98a8b4518195c701c9f9954e",
+    "loop02_reinforcement.py": "cd30e04699d34e48eda80ae445cb9f1b071bfffd85a1447b0f64b855794b7489",
+    "common.py": "5eb12f0b6cc68a425b66e87eed773fca8acc0a7d23cc3a4f8792cc666b923920"
+  },
+  "evaluation_status": "development benchmark, not paper reproduction"
+}

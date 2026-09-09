@@ -1,0 +1,7 @@
+policy,condition,seed,return,upright_fraction
+random,action_repeat_3,10000,-782.3465282814345,0.085
+random,action_repeat_3,10001,-1275.680757004946,0.0
+known_dynamics_mpc,action_repeat_3,10000,-1.9559411084457305,1.0
+known_dynamics_mpc,action_repeat_3,10001,-120.94175487598845,0.86
+learned_dynamics_mpc,action_repeat_3,10000,-2.5829006782419137,1.0
+learned_dynamics_mpc,action_repeat_3,10001,-124.62122597015008,0.865
