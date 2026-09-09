@@ -1,0 +1,7 @@
+# training artifacts stay out of git
+outputs/
+**/outputs/
+*.mp4
+__pycache__/
+.ipynb_checkpoints/
+wandb/
