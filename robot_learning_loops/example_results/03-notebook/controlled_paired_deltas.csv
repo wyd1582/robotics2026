@@ -1,0 +1,4 @@
+candidate,reference,condition,mean_delta,ci_low,ci_high,n_pairs
+planner_data,base_mpc,action_repeat_3,0.19469850440015446,-0.008781033938404138,0.40684312667620215,8
+planner_data,more_updates,action_repeat_3,0.3427100479812625,0.12260418245316022,0.6280347587773427,8
+planner_data,more_random,action_repeat_3,0.32792625993597496,0.059593490145946504,0.613830798429156,8
