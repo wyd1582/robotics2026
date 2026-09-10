@@ -5,6 +5,12 @@ import gymnasium as gym
 import numpy as np
 import torch
 
+from course_utils import (
+    audit_transitions,
+    collect_with_planner,
+    prediction_diagnostics,
+    preserve_cpu_rng,
+)
 from frontier import COMMIT, build_commands
 from loop01_imitation import Actor, collect, expert_action
 from loop02_reinforcement import TransitionRecorder
@@ -88,3 +94,40 @@ def test_frontier_commands_disable_upload_and_pin_dataset(tmp_path):
     assert "--env_eval_freq=0" in command
     assert "--dataset.eval_split=0.1" in command
     assert len(COMMIT) == 40
+
+
+def test_planner_collection_uses_real_next_states_and_action_repeat():
+    config = {"horizon": 3, "candidates": 8, "iterations": 1, "repeat": 3}
+    data, scores = collect_with_planner(known_transition, "oracle", [30, 31], config, episode_steps=8)
+    audit_transitions(data, require_closed=True)
+    assert len(data["obs"]) == 16 and len(scores) == 2
+    assert data["truncated"][[7, 15]].all() and not data["terminated"].any()
+    for start in [0, 8]:
+        np.testing.assert_array_equal(data["action"][start:start+3], np.repeat(data["action"][start:start+1], 3, axis=0))
+    predicted = known_transition(torch.tensor(data["obs"]), torch.tensor(data["action"])).numpy()
+    np.testing.assert_allclose(predicted, data["next_obs"], atol=2e-6)
+
+
+def test_multistep_diagnostic_respects_episode_boundaries():
+    from loop03_world_model import collect as collect_dynamics
+    data = collect_dynamics([6, 21])
+    errors = prediction_diagnostics(known_transition, data, horizons=(1, 5))
+    assert len(errors) == 4
+    assert errors.angle_rmse_rad.max() < 1e-5
+    assert errors.velocity_rmse_rad_s.max() < 1e-4
+
+
+def test_checkpoint_inspection_preserves_training_random_streams(tmp_path):
+    from stable_baselines3 import SAC
+    model = SAC("MlpPolicy", "Pendulum-v1", seed=13, buffer_size=10, policy_kwargs={"net_arch": [8, 8]})
+    model.save(tmp_path / "policy")
+    state = torch.get_rng_state()
+    np_state = np.random.get_state()
+    with preserve_cpu_rng():
+        loaded = SAC.load(tmp_path / "policy", device="cpu")
+    assert torch.equal(torch.get_rng_state(), state)
+    current = np.random.get_state()
+    assert current[0] == np_state[0] and np.array_equal(current[1], np_state[1]) and current[2:] == np_state[2:]
+    np.testing.assert_array_equal(model.predict(np.array([1., 0., 0.]), deterministic=True)[0],
+                                  loaded.predict(np.array([1., 0., 0.]), deterministic=True)[0])
+    model.get_env().close()

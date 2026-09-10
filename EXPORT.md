@@ -10,7 +10,7 @@ This branch adds the generated learning materials alongside the repository's exi
 | `outputs/START_HERE.md` and three setup/practice scripts | `day0/chatgpt/` |
 | Two portable ZIP packages | `downloads/` (rebuilt from the publication copies) |
 
-All existing recorded runs, raw synthetic trajectories, small checkpoints, plots, reports and animations are included. New run directories are ignored. A directory with only `manifest.json` represents an incomplete interactive run, not a successful experiment.
+The initial export includes its recorded runs, raw synthetic trajectories, small checkpoints, plots, reports and animations. Each later course release explicitly includes its validated final run snapshots; other new local run directories stay ignored. A directory with only `manifest.json` represents an incomplete interactive run, not a successful experiment.
 
 Excluded: virtual environments, dependency caches, Python bytecode, notebook autosave checkpoints, macOS metadata, private resume source files and research scratch directories. These are not needed to reproduce the exercises.
 
@@ -25,4 +25,4 @@ Excluded: virtual environments, dependency caches, Python bytecode, notebook aut
 
 ## Validation
 
-Notebook schema, executed-cell order, absence of error outputs, embedded plots/GIFs, Python/shell syntax, and local Markdown links are checked before publishing. Seven contract tests cover dynamics, episode boundaries, checkpoint round trips and experiment configuration. See `robot_learning_loops/VALIDATION.md` for actual training validation and limitations.
+Notebook schema, executed-cell order, absence of error outputs, embedded plots/GIFs, Python/shell syntax, and local Markdown links are checked before publishing. Ten contract tests cover dynamics, episode boundaries, checkpoint round trips, planning records, random-stream preservation and experiment configuration. See `robot_learning_loops/VALIDATION.md` for actual training validation and limitations.

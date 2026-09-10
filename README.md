@@ -31,6 +31,9 @@ robotics2026/
 | 入口 | 内容 |
 |---|---|
 | [第一课 Notebook](robot_learning_loops/notebooks/01_机械臂模仿学习.ipynb) | 30 个单元格：采集、审计、BC 训练、执行、DAgger 式纠正、对照、复盘；保留已执行输出 |
+| [第二课：强化学习](robot_learning_loops/notebooks/02_强化学习与经验回放.ipynb) | SAC 预算对照、经验回放、动作缩放、时间截断和压力评测；已执行 |
+| [第三课：世界模型与规划](robot_learning_loops/notebooks/03_世界模型与规划迭代.ipynb) | 动力学学习、MPC 执行、新数据采集和对照重训；已执行 |
+| [三课学习顺序](robot_learning_loops/COURSE_GUIDE.md) | 每课应交付的复盘、第二遍练习与原有 NB00–NB08 的衔接 |
 | [HTML 预览](robot_learning_loops/notebooks/01_机械臂模仿学习.html) | 下载到本地用浏览器打开，查看完整表格、曲线与 GIF |
 | [参考复盘](robot_learning_loops/notebooks/参考复盘.md) | 先写自己的判断，再对照讲评 |
 | [学习路线](robot_learning_loops/lessons/00_闭环地图.md) | 模仿学习 → 强化学习 → 世界模型/MPC → ACT/Diffusion → VLA |

@@ -1,0 +1,29 @@
+{
+  "experiment": "notebook02",
+  "args": {
+    "seed": 7,
+    "first_steps": 2000,
+    "total_steps": 10000,
+    "eval_episodes": 16
+  },
+  "versions": {
+    "numpy": "2.5.3",
+    "torch": "2.14.0",
+    "gymnasium": "1.3.0",
+    "mujoco": "3.12.0",
+    "stable-baselines3": "2.9.0"
+  },
+  "python": "3.12.14",
+  "architecture": "arm64",
+  "source_sha256": {
+    "test_contracts.py": "7911c8e03a8af2b5b1a746ebd5abee16aa02bbe7d94b917c5c2f07b8e63325a7",
+    "loop01_imitation.py": "4fe633692552b1db76c1ef20b42e7a9357ab93b040f30ab428ab9d13d5cdb8aa",
+    "loop02_reinforcement.py": "b88b58c19d5ef8d3e693a25e3b6e409a411b731f429a70a153291ab685cccff2",
+    "course_utils.py": "1d395b6ed3b287787d062608654648dafe0ea07d5674555f080296073c11d6e0",
+    "common.py": "dd2ace33f9882bb711f19d4baf3c7d8d62e7e8b5d3033f68c2f4ab02394f9022",
+    "loop03_world_model.py": "281e4afcaeb9867ae6f04cedea22aea282b07bc904375250eaed9e0e8224db13",
+    "frontier.py": "8f8c0f5bec64e954c2a78cea98a3617b7e07a966d9ec5ef577d3612173f7d090"
+  },
+  "evaluation_status": "development benchmark, not paper reproduction",
+  "notebook_source_sha256": "5a936da39a6ac13340fef5da596dc553222bc4fd5507bfec381612b4cc90e45e"
+}
