@@ -11,9 +11,9 @@
 robotics2026/
 ├── day0/                    # 新机自检与安装
 │   ├── (Linux/通用版)       #   check_env.sh + 分层冒烟测试 + exercises 速览
-│   └── chatgpt/             #   Mac (Apple Silicon) 版：START_HERE.md + mac_selfcheck.sh + 时间语义练习
+│   └── chatgpt/             #   Mac (Apple Silicon) 版：新机起步.md + mac_selfcheck.sh + 时间语义练习
 ├── robot_learning_loops/    # 【A线·算法直觉】Mac CPU 可跑的完整闭环阶梯（已实测验证）
-│   ├── loop01_imitation.py  #   BC + DAgger 式纠正（✅ 已跑通，见 VALIDATION.md）
+│   ├── loop01_imitation.py  #   BC + DAgger 式纠正（✅ 已跑通，见 验证记录.md）
 │   ├── loop02_reinforcement.py  # SAC/PPO（✅ 链路已验证）
 │   ├── loop03_world_model.py    # 学习动力学 + CEM/MPC（✅ 已跑通）
 │   ├── frontier.py          #   项目4/5：ACT/Diffusion、SmolVLA 复现计划生成器（未训练验证）
@@ -24,7 +24,7 @@ robotics2026/
 │   ├── nbutils.py           #   结果账本（append-only）、Wilson CI、数据集兼容加载
 │   └── README.md            #   递进地图、运行纪律、算力预算
 ├── weekNN/                  # 每周留痕：NOTES.md + oral-exam.md（允许粗糙，禁止事后美化）
-└── downloads/               # 便携压缩包（发布范围见 EXPORT.md）
+└── downloads/               # 便携压缩包（发布范围见 发布范围.md）
 ```
 
 ## 两条线为什么互补（不要二选一，也不要并行乱跑）
@@ -45,7 +45,7 @@ A线证明你能做出东西，B线证明你能衡量东西。评测专家没有
    一次投入两线记账。
 2. **NB03（评测统计学）反哺 A 线**：NB03 产出你的《评测协议 v1》（n、seed、Wilson CI、A/B 判定规则），
    立刻应用到 A 线所有 `episodes.csv`——A 线当前的区间是单 seed bootstrap，NB03 告诉你它能支持什么结论。
-3. **START_HERE 的首个研究问题 ≈ NB06 的具体化**：「观测延迟/训练配对错位 vs 数据干预对成功率的影响」
+3. **《新机起步》的首个研究问题 ≈ NB06 的具体化**：「观测延迟/训练配对错位 vs 数据干预对成功率的影响」
    正是 预测→干预→实测 的题材，且直指你的差异化方向（时序、point-in-time、数据价值）。
 
 ## 整合学习路径（按阶段推进，同一时间只推进一个项目）
@@ -59,15 +59,15 @@ A线证明你能做出东西，B线证明你能衡量东西。评测专家没有
 | [第一课 Notebook](robot_learning_loops/notebooks/01_机械臂模仿学习.ipynb) | 30 个单元格：采集、审计、BC 训练、执行、DAgger 式纠正、对照、复盘；保留已执行输出 |
 | [第二课：强化学习](robot_learning_loops/notebooks/02_强化学习与经验回放.ipynb) | SAC 预算对照、经验回放、动作缩放、时间截断和压力评测；已执行 |
 | [第三课：世界模型与规划](robot_learning_loops/notebooks/03_世界模型与规划迭代.ipynb) | 动力学学习、MPC 执行、新数据采集和对照重训；已执行 |
-| [三课学习顺序](robot_learning_loops/COURSE_GUIDE.md) | 每课应交付的复盘、第二遍练习与原有 NB00–NB08 的衔接 |
+| [三课学习顺序](robot_learning_loops/课程指南.md) | 每课应交付的复盘、第二遍练习与原有 NB00–NB08 的衔接 |
 | [HTML 预览](robot_learning_loops/notebooks/01_机械臂模仿学习.html) | 下载到本地用浏览器打开，查看完整表格、曲线与 GIF |
 | [参考复盘](robot_learning_loops/notebooks/参考复盘.md) | 先写自己的判断，再对照讲评 |
 | [学习路线](robot_learning_loops/lessons/00_闭环地图.md) | 模仿学习 → 强化学习 → 世界模型/MPC → ACT/Diffusion → VLA |
-| [结果与验证](robot_learning_loops/VALIDATION.md) | 已跑通的范围、实际数据与尚未验证的前沿项目 |
-| [Mac 起步工具](day0/chatgpt/START_HERE.md) | 新机自检、Torch smoke test、时间语义练习与安装指南 |
+| [结果与验证](robot_learning_loops/验证记录.md) | 已跑通的范围、实际数据与尚未验证的前沿项目 |
+| [Mac 起步工具](day0/chatgpt/新机起步.md) | 新机自检、Torch smoke test、时间语义练习与安装指南 |
 | [轻量下载包](downloads/) | 整套练习和起步工具的便携压缩包 |
 
-- Mac：`day0/chatgpt/START_HERE.md` + `mac_selfcheck.sh`；Linux/云：`day0/check_env.sh`。
+- Mac：`day0/chatgpt/新机起步.md` + `mac_selfcheck.sh`；Linux/云：`day0/check_env.sh`。
 - ✅ A线 loop01（BC+DAgger）已于 2026-09 跑通并验证（正常反馈误差 ~4.17cm → 纠正后 ~1.37cm）。
 
 ### Phase 1 · 本地筑基（约 2 周，全部 Mac 本地，零 GPU 成本）
@@ -88,7 +88,7 @@ Phase 1 出口检验（口试自测）：BC 为什么会 compounding error？没
 |---|---|---|
 | 5 | A线项目4 / B线NB02（同一件事）：LeRobot PushT 训 ACT 或 Diffusion | success rate 达官方参考 ±10%，或有完整排查记录；成本账入账本 |
 | 6 | B线 NB04（数据消融） | Success=f(N) 曲线（每点≥2 seeds + CI）；说出「每 25 条 episode 值几个百分点」 |
-| 7 | 首个研究问题（START_HERE §1 = NB06 方法论）：延迟/配对错位 vs 数据干预 | 预测先落盘→干预→实测→差值解释；一页双语报告 |
+| 7 | 首个研究问题（《新机起步》§1 = NB06 方法论）：延迟/配对错位 vs 数据干预 | 预测先落盘→干预→实测→差值解释；一页双语报告 |
 
 Phase 2 的产出直接是《数据资产审计》的实证脚注和 networking 弹药（Drive 计划 Week 2–4 的「战」线）。
 
@@ -121,7 +121,7 @@ cd day0 && bash check_env.sh        # Mac 用 day0/chatgpt/mac_selfcheck.sh
 2. **账本只增不改**：B线 `notebooks/results/` 与 A线 `runs/` 同理——失败记录是留痕的一部分。
 3. **先预测后运行**：任何对照实验，预测先落盘（带时间戳）再动手。
 4. **区间不缺席**：所有公开数字带 CI 与 n；协议以 NB03 为准，改协议须书面说明并注明生效时间。
-5. **诚实边界**：教学仿真结果不外推真机与论文 benchmark（A线 `VALIDATION.md` 的写法是模板，保持这个标准）。
+5. **诚实边界**：教学仿真结果不外推真机与论文 benchmark（A线 `验证记录.md` 的写法是模板，保持这个标准）。
 6. **每周五一页 thesis**：从当周账本提炼，同步 GitHub + 对外渠道（对应《02 开源蓝图》节拍）。
 
 ## 与《Physical AI 训战合一计划》12 周课表的映射
@@ -144,5 +144,5 @@ cd day0 && bash check_env.sh        # Mac 用 day0/chatgpt/mac_selfcheck.sh
 ## 约定
 
 - commit message 英文、动词开头、说清 why；每周 ≥4 天有 commit。
-- weekNN/ 放 `NOTES.md`、`oral-exam.md`、当周代码；发布范围见 `EXPORT.md`。
+- weekNN/ 放 `NOTES.md`、`oral-exam.md`、当周代码；发布范围见 `发布范围.md`。
 - 不提交：`.venv`、大体积新 runs（历史验证快照除外）、任何凭证与 `.env`。
