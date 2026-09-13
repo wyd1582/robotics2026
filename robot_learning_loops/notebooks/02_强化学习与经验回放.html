@@ -7889,7 +7889,7 @@ a.anchor-link {
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Results: runs/notebook02-20260910-093347-645000
+<pre>Results: runs/notebook02-20260913-163331-279000
 CPU threads: 2
 </pre>
 </div>
@@ -7958,6 +7958,12 @@ CPU threads: 2
 <p>环境奖励使用动作前的状态：$r_t=-(\theta_t^2+0.1\dot\theta_t^2+0.001u_t^2)$，角度先归一到 $[-\pi,\pi)$。
 回报是整段奖励之和，<strong>越高越好</strong>，通常是负数。它没有内置的二元成功标签。</p>
 <p>我们另记“保持向上的时间比例”：角度绝对值 &lt; 0.2 rad 且角速度绝对值 &lt; 1 rad/s。它是辅助、自定义指标。</p>
+<p>纯文本公式：<code>reward = -(wrapped_angle**2 + 0.1*angular_velocity**2 + 0.001*torque**2)</code>。
+三项分别惩罚偏离正上方、过快运动、控制努力；平方力矩不是实际电能。0.1 和 0.001 是任务设计权重，不是物理定律。
+本课目标固定为正上方，所以观测不再附加目标坐标。它要学两个阶段：<strong>摆起时积累动能，接近目标时减速并保持</strong>。</p>
+<p>注意：只最大化本步奖励会选零力矩，因为状态成本取自动作前。动作影响未来状态，必须考虑后续回报。
+独立评测报告未折扣的 200 步奖励和；SAC 训练还含 gamma 折扣和熵项，这几个量不要混为一谈。
+如果这段仍抽象，先做 <a href="02A_SAC%E7%9B%B4%E8%A7%89%E4%B8%8E%E5%A5%96%E5%8A%B1%E8%AE%BE%E8%AE%A1%E6%8C%91%E6%88%98.ipynb">02A 六道直觉挑战</a> 的第 1–2 题，不需要先训练。</p>
 </div>
 </div>
 </div>
@@ -7966,7 +7972,7 @@ CPU threads: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [3]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">env</span> <span class="o">=</span> <span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">"Pendulum-v1"</span><span class="p">)</span>
@@ -8068,6 +8074,11 @@ CPU threads: 2
 <h2 id="3-%C2%B7-%E5%85%88%E5%BB%BA%E7%AB%8B-SAC%EF%BC%8C%E5%86%8D%E7%90%86%E8%A7%A3%E5%AE%83%E6%80%8E%E6%A0%B7%E5%BE%97%E5%88%B0%E8%AE%AD%E7%BB%83%E4%BF%A1%E5%8F%B7">3 · 先建立 SAC，再理解它怎样得到训练信号<a class="anchor-link" href="#3-%C2%B7-%E5%85%88%E5%BB%BA%E7%AB%8B-SAC%EF%BC%8C%E5%86%8D%E7%90%86%E8%A7%A3%E5%AE%83%E6%80%8E%E6%A0%B7%E5%BE%97%E5%88%B0%E8%AE%AD%E7%BB%83%E4%BF%A1%E5%8F%B7">¶</a></h2><p>SAC 同时维护动作策略 actor、两套 Q 网络 critic 和慢更新的目标 Q 网络。Q 估计长期回报；动作策略追求较高 Q，并用熵项鼓励探索。两套 Q 与目标网络用于降低部分估计问题，不保证训练必然稳定。</p>
 <p>这里使用 SB3 原实现，避免把实现 SAC 的工程量混进第一次问题定义。你可以直接查看实际网络、数据和更新次数。</p>
 <p>Replay buffer 保存的是 $(o,a,r,o',terminated,truncated)$，<strong>没有专家动作标签</strong>。SAC 从历史交互中采样，反复更新模型；因此环境步数与梯度更新数是两个预算。</p>
+<p>全称是 <strong>Soft Actor-Critic（SAC）</strong>：Actor 提议动作；Critic 用真实奖励加后续价值估计来学习“这一步动作长期值不值”；Soft 指策略熵正则化，不表示电机动作轻柔。
+最初 critic 的判断也不可靠，两个网络和实际交互一起迭代。Actor 不拟合专家标签，而是通过 critic 改进动作；部署评测通常只需要 Actor。
+Replay 是过去真实交互的复用，不能把它当成新的环境步数；本课是 off-policy 在线交互学习，不等于能直接在任意固定离线数据上安全训练。</p>
+<p>三个不同目标：<strong>环境一步奖励</strong>定义偏好；<strong>critic loss</strong>拟合带后续价值的目标；<strong>actor loss</strong>权衡价值与熵。另有自动熵系数的优化。
+第 <a href="02A_SAC%E7%9B%B4%E8%A7%89%E4%B8%8E%E5%A5%96%E5%8A%B1%E8%AE%BE%E8%AE%A1%E6%8C%91%E6%88%98.ipynb">02A</a> 3–4 题用小数字拆开这些概念，第 5–6 题检验反馈和奖励改动的实际行为。</p>
 </div>
 </div>
 </div>
@@ -8076,7 +8087,7 @@ CPU threads: 2
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [4]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">training_env</span> <span class="o">=</span> <span class="n">TransitionRecorder</span><span class="p">(</span><span class="n">gym</span><span class="o">.</span><span class="n">make</span><span class="p">(</span><span class="s2">"Pendulum-v1"</span><span class="p">))</span>
@@ -8146,7 +8157,7 @@ sac_0 save/reload PASS
 <div class="jp-Collapser jp-InputCollapser jp-Cell-inputCollapser">
 </div>
 <div class="jp-InputArea jp-Cell-inputArea">
-<div class="jp-InputPrompt jp-InputArea-prompt">In [5]:</div>
+<div class="jp-InputPrompt jp-InputArea-prompt">In [6]:</div>
 <div class="jp-CodeMirrorEditor jp-Editor jp-InputArea-editor" data-type="inline">
 <div class="cm-editor cm-s-jupyter">
 <div class="highlight hl-ipython3"><pre><span></span><span class="n">stage_start</span> <span class="o">=</span> <span class="n">time</span><span class="o">.</span><span class="n">perf_counter</span><span class="p">()</span>
@@ -8173,13 +8184,7 @@ sac_0 save/reload PASS
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Collected 2000 environment steps
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Actual environment steps: 2000 seconds: 1.59
+Actual environment steps: 2000 seconds: 1.58
 sac_2000 save/reload PASS
 </pre>
 </div>
@@ -8455,34 +8460,10 @@ Incorrectly treating time limit as terminal: -1.0
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
 <pre>Collected 4000 environment steps
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Collected 6000 environment steps
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Collected 8000 environment steps
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Collected 10000 environment steps
-</pre>
-</div>
-</div>
-<div class="jp-OutputArea-child">
-<div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
-<div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>sac_10000 save/reload PASS
+Collected 6000 environment steps
+Collected 8000 environment steps
+Collected 10000 environment steps
+sac_10000 save/reload PASS
 </pre>
 </div>
 </div>
@@ -8580,65 +8561,65 @@ Incorrectly treating time limit as terminal: -1.0
 <thead>
 <tr style="text-align: right;">
 <th></th>
-<th>time/total_timesteps</th>
-<th>rollout/ep_rew_mean</th>
-<th>rollout/ep_len_mean</th>
-<th>time/time_elapsed</th>
-<th>time/fps</th>
 <th>time/episodes</th>
+<th>time/fps</th>
+<th>time/time_elapsed</th>
+<th>rollout/ep_len_mean</th>
+<th>rollout/ep_rew_mean</th>
+<th>time/total_timesteps</th>
+<th>train/learning_rate</th>
+<th>train/ent_coef</th>
 <th>train/critic_loss</th>
 <th>train/ent_coef_loss</th>
-<th>train/actor_loss</th>
-<th>train/learning_rate</th>
 <th>train/n_updates</th>
-<th>train/ent_coef</th>
+<th>train/actor_loss</th>
 </tr>
 </thead>
 <tbody>
 <tr>
 <th>47</th>
-<td>9600</td>
-<td>-503.235288</td>
-<td>200.0</td>
-<td>7</td>
-<td>979</td>
 <td>48</td>
+<td>987</td>
+<td>7</td>
+<td>200.0</td>
+<td>-503.235288</td>
+<td>9600</td>
+<td>0.001</td>
+<td>0.087162</td>
 <td>2.456263</td>
 <td>0.172945</td>
-<td>65.003708</td>
-<td>0.001</td>
 <td>9099.0</td>
-<td>0.087162</td>
+<td>65.003708</td>
 </tr>
 <tr>
 <th>48</th>
-<td>9800</td>
-<td>-497.840992</td>
-<td>200.0</td>
-<td>7</td>
-<td>978</td>
 <td>49</td>
+<td>987</td>
+<td>7</td>
+<td>200.0</td>
+<td>-497.840992</td>
+<td>9800</td>
+<td>0.001</td>
+<td>0.085334</td>
 <td>3.326165</td>
 <td>-0.631420</td>
-<td>53.219112</td>
-<td>0.001</td>
 <td>9299.0</td>
-<td>0.085334</td>
+<td>53.219112</td>
 </tr>
 <tr>
 <th>49</th>
-<td>10000</td>
-<td>-492.438606</td>
-<td>200.0</td>
-<td>8</td>
-<td>978</td>
 <td>50</td>
+<td>987</td>
+<td>8</td>
+<td>200.0</td>
+<td>-492.438606</td>
+<td>10000</td>
+<td>0.001</td>
+<td>0.082114</td>
 <td>3.292181</td>
 <td>-0.390030</td>
-<td>57.717484</td>
-<td>0.001</td>
 <td>9499.0</td>
-<td>0.082114</td>
+<td>57.717484</td>
 </tr>
 </tbody>
 </table>
@@ -9019,8 +9000,8 @@ sac_10000 delay_0_g12 16  -124.880064  -169.267250   -75.239930
 <div class="jp-OutputArea-child">
 <div class="jp-OutputPrompt jp-OutputArea-prompt"></div>
 <div class="jp-RenderedText jp-OutputArea-output" data-mime-type="text/plain" tabindex="0">
-<pre>Elapsed from setup: 14.1 seconds (includes reading time in an interactive run).
-Saved: runs/notebook02-20260910-093347-645000/review.md
+<pre>Elapsed from setup: 854.6 seconds (includes reading time in an interactive run).
+Saved: runs/notebook02-20260913-163331-279000/review.md
 </pre>
 </div>
 </div>

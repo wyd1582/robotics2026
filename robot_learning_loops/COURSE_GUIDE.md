@@ -33,6 +33,10 @@ uv run --locked --group notebooks jupyter lab
 2. [02_强化学习与经验回放.ipynb](notebooks/02_强化学习与经验回放.ipynb)
 3. [03_世界模型与规划迭代.ipynb](notebooks/03_世界模型与规划迭代.ipynb)
 
+第二课补充：[02A_SAC直觉与奖励设计挑战.ipynb](notebooks/02A_SAC直觉与奖励设计挑战.ipynb)。
+可独立运行，默认不训练；六题依次练奖励分解、即时贪心反例、critic 目标、熵、反馈与延迟、奖励改造。
+第六题需手动打开训练开关。已保存默认执行输出，并配有 [参考解题提示](notebooks/02A_参考解题提示.md)。
+
 如果只想读已有结果，下载同名 `.html` 用浏览器打开。所有动画来自实际模拟状态，已嵌入文件。
 
 第一课的参考讲评为 [参考复盘.md](notebooks/参考复盘.md)，后两课分别为 [02_参考复盘.md](notebooks/02_参考复盘.md) 与 [03_参考复盘.md](notebooks/03_参考复盘.md)。

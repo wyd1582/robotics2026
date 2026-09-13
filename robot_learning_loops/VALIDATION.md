@@ -37,3 +37,10 @@
 交付包排除 `.venv`、缓存和大体积原始运行；保留源码、锁文件、已执行 Notebook、HTML、讲义与部分结果证据。此 GitHub 分支另外保留完整历史数据与 checkpoint 于 `runs/`；下载压缩包仍采用轻量内容，可运行 Notebook 重新生成数据。
 
 所有结果是教学规模的本地仿真；区间是单一训练 seed 条件下的 episode bootstrap，不包含训练随机性。没有启动 AWS、连接真机、公开上传或提交外部 PR。
+# 02A 补充练习验证（2026-09-13）
+
+- `02A_SAC直觉与奖励设计挑战.ipynb` 从干净 kernel 完成默认执行；保存表格、曲线与真实仿真 GIF。默认未运行第六题训练。
+- `test_sac_challenges.py`：4 项通过，检查奖励来自动作前状态、裁剪、奖励 wrapper 不改变轨迹或 timeout、零动作延迟对照，以及 SAC bootstrap 的终止掩码。
+- 可选第六题的原 Notebook 代码另以每组 600 步执行，两组均完成训练、checkpoint 保存和 8 个固定初始 seed 的评测；这是分支运行检查，不是收敛或算法效果验证。
+- 第二课原 Notebook 仅更新第 2/3 节说明；原代码单元与输出保持一致，并重新导出 HTML。新增辅助 Notebook 的源文件生成器为 `tools/build_sac_challenges.py`。
+- 默认输出：`runs/notebook02A-20260913-171527-120000/`；可选分支检查：`runs/challenge02A-training-smoke-1789290969367514000/`。这些运行目录按现有 Git 忽略规则保留在本地。
